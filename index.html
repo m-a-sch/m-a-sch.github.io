@@ -4,12 +4,14 @@
         <title>Imag--Ination(r)</title>
     </head>
     <style type="text/css">
+        * {box-sizing: border-box}
         body {margin-top:0; margin-left: 0; margin-right: 0; margin-bottom: 0; font-family:Arial, Helvetica, sans-serif}
         .header {text-align: center; width: 100%;height:196px; position: relative; top: 0pt}
-        .row {text-align: left; margin-left:1em; width: 100%;position: relative;}
+        h1 {color:red}
+        .row {text-align: justify; margin-left:1em; margin-right:1em; position: relative;}
         .footer {background-color: lightblue;text-align: center; width: 100%; height:20pt ;position: fixed; bottom: 0pt}
-        .row.after {content:""; display:table; clear:both}
-        .column {float: left;  width: 50%}
+        .row:after {content:""; display:table; clear:both}
+        .column {float: left;  width: 50% ; padding: 10px}
         @media screen and (max-width:600px) {.column {width: 100%}}
     </style>
     <body>
@@ -20,9 +22,13 @@
         <div class="row">
                 <div class="column"><h1>What I do</h1>
                     <p>I design web sites and apps, using HTML, CSS, JavaScript, SQL and Python.</p>
-                    <p>I advise on pragmatic and effective IT security and business ethics matters.</div>
+                    <p>I advise on pragmatic and effective IT security and business ethics matters.</p>
+                </div>
                 <div class="column"><h1>What I think</h1><p>An elephant and a bird are strictly the same when it comes to sharing ideas and frustrations about life.</p>
-                    <p>Open data is more likely to save cost than to create value. Same applies to open code.</p></div>
+                    <p>Open data is more likely to save cost than to create value. Same applies to open code.</p>
+                    <p>There is no privacy on the Internet and there will never be as noone is ready the pay for it.</p>
+                    <p>Confidentiality, integrity, and avaiability are only achievable when "made by design and by default". All attempts to retro-fit those are a waste of resources.</p>
+                </div>
         </div>
         
         <div class="footer" >
