@@ -8,20 +8,21 @@
     <style>
        
        input#speed {
-         height: 10% !important;
-         font-size: 100%;
+         height: 30px !important;
+         font-size: 20px;
          width: 20%;
+         text-align: center;
          
        }
     button#slower {
       height: 50px !important;
-      font-size: 100%;
+      font-size: 20px;
       width: 30%;
       
     }
     button#faster {
       height: 50px !important;
-      font-size: 100%;
+      font-size: 20px;
       width: 30%;
       
     }
@@ -37,8 +38,8 @@
 </head>
   
 <body>
-        <canvas></canvas>
-        <button id="slower" onClick=slower()>-</button><input type="text" disabled id="speed" value="10"><button id="faster" onClick=faster()>+</button>
+        <canvas></canvas><center>
+        <button id="slower" onClick=slower()>-</button><input type="text" disabled id="speed" value="10"><button id="faster" onClick=faster()>+</button></center>
         <script>
           
             var canvas = document.querySelector("canvas");
