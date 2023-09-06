@@ -6,44 +6,80 @@
         Breathe!!!
     </title>
     <style>
-       
-       input#speed {
-         height: 30px !important;
-         font-size: 20px;
-         width: 20%;
-         text-align: center;
+ 
+     
+     body {
+         background-color: skyblue;
          
-       }
-    button#slower {
-      height: 50px !important;
-      font-size: 20px;
-      width: 30%;
-      background-color: palevioletred;
-      
-    }
-    button#faster {
-      height: 50px !important;
-      font-size: 20px;
-      width: 30%;
-      background-color: palegreen;
-      
-    }
-        canvas {
-            background-color: skyblue;
-            width: 100%;
-            height: 90%;
-            position: absolute;
-            top: 10%;
-            left: 0px;
-        }
+     }
+     .buttons {
+       position: relative;
+       height:10%;
+       background-color: #7BBFD8;
+       color: white;
+     }
+
+     button#slower {
+       top: 0px;
+       font-size: 50px;
+     }
+
+     button#faster {
+       top:0px;
+       font-size: 50px;
+     }
+
+     canvas {
+       background-color: skyblue;
+       width: 100%;
+       height: 90%;
+       position: fixed;
+       top: 10%;
+       left: 0;
+     }
     </style>
 </head>
   
 <body>
-        <canvas></canvas><center>
-        <button id="slower" onClick=slower()>-</button><input type="text" disabled id="speed" value="10"><button id="faster" onClick=faster()>+</button></center>
+    
+        <canvas></canvas>
+    
+    <center>
+        <button class="buttons" id="slower" onClick=slower()> slower </button> - <button class="buttons" id="faster" onClick=faster()> faster </button></center>
+        <audio src="position.aiff" preload="auto"></audio>
+        <audio src="inhale.aiff" preload="auto"></audio>
+        <audio src="support.aiff" preload="auto"></audio>
+        <audio src="feet.aiff" preload="auto"></audio>
+        <audio src="legs.aiff" preload="auto"></audio>
+        <audio src="back.aiff" preload="auto"></audio>
+        <audio src="head.aiff" preload="auto"></audio>
+    
         <script>
-            
+        
+var audios = document.querySelectorAll('audio');
+audios[0].playOnceAt=[new Set([]),1];
+audios[0].volume=1;
+
+audios[1].playOnceAt=[new Set([1,2,3]),0.5];
+audios[1].volume=0.8;
+function reset_with_change()
+    {
+    audios[2].playOnceAt=[new Set([10]),1];
+    audios[2].volume=0.6;
+
+    audios[3].playOnceAt=[new Set([11,16]),0.5];
+    audios[3].volume=0.6;
+
+    audios[4].playOnceAt=[new Set([12,17]),0.5];
+    audios[4].volume=0.6;
+
+    audios[5].playOnceAt=[new Set([13,18]),0.5];
+    audios[5].volume=0.6;
+
+    audios[6].playOnceAt=[new Set([14,19]),0.5];
+    audios[6].volume=0.6;
+    }
+reset_with_change();
 var canvas = document.querySelector("canvas");
 canvas.width = innerWidth;
 canvas.height = innerHeight;
@@ -61,8 +97,9 @@ var r = radius;
 var count=0;
 var calibrationSteps = 0;
 var inout = "in";
-           
-var wantedTime=(60/parseInt(document.getElementById("speed").value))*1000;
+var pace=10;
+var savedPace=pace;
+var wantedTime=(60/pace)*1000;
 var distance = innerHeight - radius;
             
             
@@ -81,15 +118,19 @@ var achievedTime = wantedTime;
 vy=stepSize;
 function slower()
     {
-    current = parseInt(document.getElementById("speed").value);
-    current -= 1;
-    document.getElementById("speed").value=Math.max(3,current);
+    if (pace == savedPace)
+       pace=Math.max(3,savedPace-1)
+    else
+       pace=Math.max(3,pace-1)
+    reset_with_change();
     }
 function faster()
     {
-    current = parseInt(document.getElementById("speed").value);
-    current += 1;
-    document.getElementById("speed").value=Math.min(15,current);
+    if (pace == savedPace)
+       pace=Math.min(15,savedPace+1)
+    else
+       pace=Math.min(15,pace+1)
+    reset_with_change();
     }
 function didAnythingChange ()
     {
@@ -102,7 +143,7 @@ function didAnythingChange ()
         steps = distance/stepSize;
         return true;
         }
-    if (Math.abs(wantedTime - ((60/parseInt(document.getElementById("speed").value))*1000)) >= 0.01 )
+    if (pace != savedPace)
         {//user changed the pace
         stepSize = stepSizeDefault;
         steps = distance/stepSize;
@@ -116,7 +157,7 @@ function adjust()
         return
     diffTime=Date.now()-startTime;
     startTime=Date.now();
-    wantedTime=(60/parseInt(document.getElementById("speed").value))*1000;
+    wantedTime=(60/pace)*1000;
     achievedTime = diffTime;
     if (Math.abs((wantedTime-achievedTime) / wantedTime) > 0.1)
         {
@@ -132,6 +173,7 @@ function adjust()
             b=waitTests[1][1]-(waitTests[0][1]*a);
             waitTimePerStep=Math.round((0-b)/a);
             calibrationSteps = 0;
+            savedPace=pace;
             okColor="white";
             message="ok";
             }
@@ -139,14 +181,22 @@ function adjust()
         }
     else
         {
+        savedPace=pace;
         calibrationSteps = 0;
         okColor="white";
         message="ok";
         }
+    //console.log( (wantedTime - achievedTime), stepSize, steps, waitTimePerStep );
                   
     }
-
-move();
+audios[0].addEventListener('ended', function()
+                                    {
+                startTime = Date.now();
+                endTime = Date.now();
+                                    move();
+                                    });
+audios[0].volume=0.7;
+audios[0].play();
           
             
 function moveafter()
@@ -169,18 +219,26 @@ function move()
     r=Math.max(Math.floor(radius * (innerHeight - y) / innerHeight),1);
     breathingArea.arc(x, y, r, 0, Math.PI * 2, false);
     breathingArea.fillStyle = okColor;
+    breathingArea.fillStyle = "#7BBFD8";
+    breathingArea.textAlign="center";
+    breathingArea.font=distance+"px arial";
+    breathingArea.fillText(pace,x,innerHeight);
+    breathingArea.fillStyle = okColor;
+    breathingArea.font="20px arial";
     breathingArea.textAlign="left";
     if (okColor == "white")
         {
-        breathingArea.fillText(inout+ " ("+  count+")", 10, innerHeight - 20);
+        breathingArea.fillText(count, 10, innerHeight - 20);
         }
     else
         {
-        breathingArea.fillText(message + " ("+calibrationSteps+")", 10, innerHeight - 20);
+        breathingArea.fillText(message + " ("+calibrationSteps+"/2)", 10, innerHeight - 20);
         }
     breathingArea.stroke();
     if (y + 1 > innerHeight)
         {
+        
+        
         adjust();
         inout="in";
         vy = 0 - stepSize;
@@ -194,6 +252,20 @@ function move()
         vy=stepSize;
         }
     y = y + vy;
+    if (vy > 0)
+      if ((y + 100) > innerHeight)
+        if (message == "ok")
+            for (let i = 0; i < audios.length; i++)
+                {
+                if (audios[i].playOnceAt[0].has(count))
+                   {
+                   audios[i].play();
+                   audios[i].volume=audios[i].volume*audios[i].playOnceAt[1]
+                   audios[i].playOnceAt[0].delete(count);
+                   }
+                            
+                }
+                  
     requestAnimationFrame(moveafter);
     }
         </script>
