@@ -58,24 +58,7 @@
         
 var audios = document.querySelectorAll('audio');
 var warningMessage = false;
-audios.forEach((audio) => {
-  audio.addEventListener('play', () => {
-    // Check if the user has allowed autoplay
-    if (!audio.muted && !audio.hasAttribute('controls')) {
-      // The user has not allowed autoplay, so display a message
-      warningMessage=true
-    }
-  });
-});
-        audios.forEach((audio) => {
-          audio.addEventListener('ended', () => {
-            // Check if the user has allowed autoplay
-            if (!audio.muted && !audio.hasAttribute('controls')) {
-              // The user has not allowed autoplay, so display a message
-              warningMessage=true
-            }
-          });
-        });
+
 audios[0].playOnceAt=[new Set([]),1];
 audios[0].volume=1;
 
@@ -280,7 +263,7 @@ function move()
                 {
                 if (audios[i].playOnceAt[0].has(count))
                    {
-                   audios[i].play();
+                   audios[i].play().catch(error => {warningMessage=true});
                    audios[i].volume=audios[i].volume*audios[i].playOnceAt[1]
                    audios[i].playOnceAt[0].delete(count);
                    }
