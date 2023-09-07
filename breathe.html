@@ -198,7 +198,9 @@ audios[0].addEventListener('ended', function()
                                     move();
                                     });
 audios[0].volume=0.7;
-audios[0].play().catch(error => {warningMessage=true});
+audios[0].play().catch(error => {warningMessage=true; startTime = Date.now();
+                endTime = Date.now();
+                                    move();});
           
             
 function moveafter()
