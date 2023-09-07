@@ -57,6 +57,16 @@
         <script>
         
 var audios = document.querySelectorAll('audio');
+var warningMessage = false;
+audios.forEach((audio) => {
+  audio.addEventListener('play', () => {
+    // Check if the user has allowed autoplay
+    if (!audio.muted && !audio.hasAttribute('controls')) {
+      // The user has not allowed autoplay, so display a message
+      warningMessage=true
+    }
+  });
+});
 audios[0].playOnceAt=[new Set([]),1];
 audios[0].volume=1;
 
@@ -226,6 +236,8 @@ function move()
     breathingArea.fillStyle = okColor;
     breathingArea.font="20px arial";
     breathingArea.textAlign="left";
+    if (warningMessage)
+        breathingArea.fillText("works best with auto-play enabled", 10, innerHeight/2);
     if (okColor == "white")
         {
         breathingArea.fillText(count, 10, innerHeight - 20);
