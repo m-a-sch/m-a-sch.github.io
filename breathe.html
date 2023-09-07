@@ -67,6 +67,15 @@ audios.forEach((audio) => {
     }
   });
 });
+        audios.forEach((audio) => {
+          audio.addEventListener('ended', () => {
+            // Check if the user has allowed autoplay
+            if (!audio.muted && !audio.hasAttribute('controls')) {
+              // The user has not allowed autoplay, so display a message
+              warningMessage=true
+            }
+          });
+        });
 audios[0].playOnceAt=[new Set([]),1];
 audios[0].volume=1;
 
