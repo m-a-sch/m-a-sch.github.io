@@ -230,14 +230,16 @@ function move()
     breathingArea.fillStyle = okColor;
     breathingArea.font="20px arial";
     breathingArea.textAlign="left";
-    if (warningMessage)
-        breathingArea.fillText("works best with auto-play enabled", 10, innerHeight/2);
+    
     if (okColor == "white")
         {
         breathingArea.fillText(count, 10, innerHeight - 20);
         }
     else
         {
+        if (warningMessage)
+            breathingArea.fillText("Easy to enable audio on desk-top, for a better experience.", 10, innerHeight/2);
+
         breathingArea.fillText(message + " ("+calibrationSteps+"/2)", 10, innerHeight - 20);
         }
     breathingArea.stroke();
