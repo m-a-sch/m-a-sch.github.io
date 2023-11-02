@@ -45,7 +45,7 @@
         <canvas></canvas>
     
     <center>
-        <button class="buttons" id="slower" onClick=slower()> slower </button> - <button class="buttons" id="faster" onClick=faster()> faster </button></center>
+        <button class="buttons" id="slower" onClick=slower()> slower </button> &#x1F50A; <input type="checkbox" id="audioOn">  <button class="buttons" id="faster" onClick=faster()> faster </button></center>
         <audio src="position.aiff" preload="auto"></audio>
         <audio src="inhale.aiff" preload="auto"></audio>
         <audio src="support.aiff" preload="auto"></audio>
@@ -57,6 +57,7 @@
         <script>
         
 var audios = document.querySelectorAll('audio');
+var audioOn = document.getElementById("audioOn");
 var warningMessage = false;
 
 audios[0].playOnceAt=[new Set([]),1];
@@ -99,7 +100,7 @@ var r = radius;
 var count=0;
 var calibrationSteps = 0;
 var inout = "in";
-var pace=10;
+var pace=6;
 var savedPace=pace;
 var wantedTime=(60/pace)*1000;
 var distance = innerHeight - radius;
@@ -191,17 +192,14 @@ function adjust()
     //console.log( (wantedTime - achievedTime), stepSize, steps, waitTimePerStep );
                   
     }
-audios[0].addEventListener('ended', function()
-                                    {
-                startTime = Date.now();
-                endTime = Date.now();
-                                    move();
-                                    });
+audios[0].addEventListener('ended', function(){startTime = Date.now();endTime = Date.now();move();});
 audios[0].volume=0.7;
-audios[0].play().catch(error => {warningMessage=true; startTime = Date.now();
-                endTime = Date.now();
-                                    move();});
-          
+if (audioOn.checked)
+    audios[0].play().catch(error => {warningMessage=true; startTime = Date.now();endTime = Date.now();move();})
+else
+    move();
+startExhale=false;
+startInhale=false;
             
 function moveafter()
     {
@@ -209,9 +207,21 @@ function moveafter()
     if (message=="ok")
         diffInOut=0.21
     if (inout == "in")
-        setTimeout(move,Math.round(waitTimePerStep-(waitTimePerStep*diffInOut)))
+        if (startInhale)
+            {
+            setTimeout(move,1000);
+            startInhale=false;
+            }
+        else
+            setTimeout(move,Math.round(waitTimePerStep-(waitTimePerStep*diffInOut)))
     else
-        setTimeout(move,Math.round(waitTimePerStep+(waitTimePerStep*diffInOut)))
+        if (startExhale)
+            {
+            setTimeout(move,3000);
+            startExhale=false;
+            }
+        else
+            setTimeout(move,Math.round(waitTimePerStep+(waitTimePerStep*diffInOut)))
     }
                 
 function move()
@@ -249,6 +259,7 @@ function move()
         
         adjust();
         inout="in";
+        startInhale=true;
         vy = 0 - stepSize;
         }
 
@@ -257,6 +268,7 @@ function move()
         {
         count += 1;
         inout="out";
+        startExhale=true;
         vy=stepSize;
         }
     y = y + vy;
@@ -267,7 +279,8 @@ function move()
                 {
                 if (audios[i].playOnceAt[0].has(count))
                    {
-                   audios[i].play().catch(error => {warningMessage=true});
+                   if (audioOn.checked)
+                       audios[i].play().catch(error => {warningMessage=true});
                    audios[i].volume=audios[i].volume*audios[i].playOnceAt[1]
                    audios[i].playOnceAt[0].delete(count);
                    }
