@@ -94,8 +94,9 @@
 <th>Sub8</th>
 <th>Rakazo</th>
 <th>OpenMausBot</th>
+<th>Instinct</th>
 </tr></thead><tbody>
-<tr class="section"><td colspan="12">OWNERSHIP</td></tr>
+<tr class="section"><td colspan="13">OWNERSHIP</td></tr>
 <tr>
 <td class="feature">License</td>
 <td>Proprietary (xAI)</td>
@@ -109,6 +110,7 @@
 <td>Open-source (check repo for exact; community self-hosted)</td>
 <td>Apache-2.0</td>
 <td>MIT (notes also reference Apache-2.0 adoption)</td>
+<td>Proprietary (Spear Street Technology, Inc.)</td>
 </tr>
 <tr>
 <td class="feature">Hosting</td>
@@ -123,6 +125,7 @@
 <td>Self-hosted</td>
 <td>Fully self-hosted (Docker / E2B / Daytona / Box); managed Cloud waitlisted</td>
 <td>Local-first (127.0.0.1 harness); optional cloud Box desktops, Local VM, or BYO VPS via SSH + Cua containers</td>
+<td>Managed cloud (invite-only / waitlist while scaling compute)</td>
 </tr>
 <tr>
 <td class="feature">Machine model</td>
@@ -137,6 +140,7 @@
 <td>Isolated Linux desktop / sandbox per agent</td>
 <td>One sandboxed computer per bot (or shared Team Computer) — browser, shell, graphical desktop</td>
 <td>Per-bot computer: cloud Linux desktop (live preview), isolated Local VM, host control (macOS + Ubuntu GNOME beta), or self-hosted VPS container</td>
+<td>Cloud + device access (phone + computer use in the same way a human would); connects to email, messaging, screen, audio, location and more</td>
 </tr>
 <tr>
 <td class="feature">State ownership</td>
@@ -151,8 +155,9 @@
 <td>User-owned</td>
 <td>User-owned (Postgres + DATA_DIR workspaces, browser profiles, audit logs)</td>
 <td>User-owned (~/.openmausbot workspaces, MEMORY.md, transcripts, keys)</td>
+<td>Provider-controlled; terms grant license to use Materials for training/fine-tuning</td>
 </tr>
-<tr class="section"><td colspan="12">CONTROL</td></tr>
+<tr class="section"><td colspan="13">CONTROL</td></tr>
 <tr>
 <td class="feature">Approval model</td>
 <td>Human-in-the-loop with takeover; bots ask when needed</td>
@@ -166,6 +171,7 @@
 <td>Configurable isolation and human oversight</td>
 <td>Configurable; request_takeover + full human desktop takeover</td>
 <td>Explicit Allow/Deny cards in chat; temporary human takeover; agents can request human operation</td>
+<td>Highly proactive / resourceful by design; can reset passwords, complete purchases, fill paperwork, make calls with relatively little friction (users report aggressive autonomy)</td>
 </tr>
 <tr>
 <td class="feature">Model choice</td>
@@ -180,6 +186,7 @@
 <td>Model-agnostic (bring your own)</td>
 <td>Fully flexible via Pi harness (Claude, GPT, Grok, local, OpenRouter, ChatGPT/Copilot/SuperGrok OAuth)</td>
 <td>Per-bot picker; runs on Claude, Codex, Grok, Cursor Agent CLI, Gemini, etc. using existing logins/subscriptions</td>
+<td>Proprietary core model trained for personal life nuances</td>
 </tr>
 <tr>
 <td class="feature">Action layer</td>
@@ -194,8 +201,9 @@
 <td>Full Linux desktop control, browser, terminal, files</td>
 <td>Browser, terminal, files, graphical desktop + optional Composio apps</td>
 <td>Computer use (Cua), browser (embedded Chromium/CDP), files, 500+ apps via Composio, MCP plugins</td>
+<td>Phone + computer use, messaging (iMessage primary), calls, bookings, shopping, form-filling, app connections</td>
 </tr>
-<tr class="section"><td colspan="12">MEMORY AND SKILLS</td></tr>
+<tr class="section"><td colspan="13">MEMORY AND SKILLS</td></tr>
 <tr>
 <td class="feature">Memory</td>
 <td>Persistent per-bot conversation + memory</td>
@@ -209,6 +217,7 @@
 <td>Persistent local memory</td>
 <td>Persistent per-bot conversations, memory, and history</td>
 <td>Per-bot workspace + file-based (MEMORY.md into prompt + topic files); plain Markdown editable by user</td>
+<td>Long-running continuous relationship / single thread with deep personal context</td>
 </tr>
 <tr>
 <td class="feature">Skills</td>
@@ -223,8 +232,9 @@
 <td>User / community defined skills and routines</td>
 <td>Markdown routines (teach once → readable/editable/committable)</td>
 <td>Personality + model per bot; shareable teams/crews; MCP plugins; routines early/coming</td>
+<td>Trained for everyday life tasks (follow-ups, travel, home services, admin, negotiation)</td>
 </tr>
-<tr class="section"><td colspan="12">COORDINATION</td></tr>
+<tr class="section"><td colspan="13">COORDINATION</td></tr>
 <tr>
 <td class="feature">Multi-agent handoff</td>
 <td>Supported (bots can coordinate / hand off)</td>
@@ -238,6 +248,7 @@
 <td>Supported via peer or sub-agent patterns</td>
 <td>Strong — spawn peer bots (own thread + computer) or short-lived subagents</td>
 <td>Bot-to-bot communication; exportable/shareable teams</td>
+<td>Primarily single continuous agent; orchestration is internal rather than multi-bot roster</td>
 </tr>
 <tr>
 <td class="feature">Channels</td>
@@ -252,6 +263,7 @@
 <td>Local UI + possible messaging bridges</td>
 <td>Web app, Electron desktop, Expo mobile; voice mode (ElevenLabs/OpenAI/Cartesia)</td>
 <td>Native desktop app (macOS, Windows, Ubuntu); phone companion (LAN/tailnet); voice (macOS STT + ElevenLabs)</td>
+<td>iMessage / text + voice calls as primary interface; no new UI to learn</td>
 </tr>
 <tr>
 <td class="feature">Scheduling</td>
@@ -266,8 +278,9 @@
 <td>Supported</td>
 <td>Routines via Graphile Worker</td>
 <td>Early / limited native scheduling (routines noted as coming)</td>
+<td>Proactive (calls/texts you, follows up, works overnight)</td>
 </tr>
-<tr class="section"><td colspan="12">RUNNING IT</td></tr>
+<tr class="section"><td colspan="13">RUNNING IT</td></tr>
 <tr>
 <td class="feature">Setup</td>
 <td>Subscription-based (SuperGrok Heavy / high-tier plans); waitlist / early access</td>
@@ -281,6 +294,7 @@
 <td>Self-host (Docker / local)</td>
 <td>Clone + Node 22 / pnpm / Docker; still early beta</td>
 <td>Download signed desktop app (or build); requires underlying agent CLIs already installed &amp; authenticated</td>
+<td>Invite-only / waitlist (instinct.co); existing members can invite</td>
 </tr>
 <tr>
 <td class="feature">Ops burden</td>
@@ -295,6 +309,7 @@
 <td>Medium</td>
 <td>Medium (Postgres, API, worker, sandbox supervisor)</td>
 <td>Low–medium for pure local; higher with BYO VPS or multiple cloud boxes</td>
+<td>None (fully managed consumer product)</td>
 </tr>
 <tr>
 <td class="feature">Cost</td>
@@ -309,36 +324,39 @@
 <td>Free software + your compute and model costs</td>
 <td>Free software; only LLM keys + optional remote sandbox costs; unlimited bots</td>
 <td>Free forever; unlimited bots; only existing AI subscriptions / optional voice &amp; sandbox costs</td>
+<td>Not publicly listed (private access / scaling phase)</td>
 </tr>
 <tr>
 <td class="feature">Security risk</td>
 <td>High privacy surface: Canadian Privacy Commissioner found xAI/X violated privacy law over non-consensual sexualized deepfakes; documented prompt-injection + encrypted-instruction data-exfiltration attacks; shared conversation URLs have been publicly indexed; class-action claims of transcript sharing with third parties; model can surface personal addresses/dossiers with minimal prompting. Managed hosting reduces self-host RCE risk but concentrates trust in xAI.</td>
 <td>Critical / actively exploited: CVE-2026-25253 (CVSS 8.8) one-click RCE via WebSocket gateway token theft; 30k–42k+ publicly exposed instances; ClawHavoc supply-chain campaign with hundreds of malicious ClawHub skills (infostealers, Atomic macOS Stealer, crypto-wallet theft); plaintext credential storage common; indirect prompt injection via messaging channels; 500+ registered vulnerabilities. Highest real-world attack surface among open-source agents.</td>
 <td>Elevated: ~27 NVD CVEs (highest ~7.3); unauthenticated API server when key unset; CORS wildcards; browser private-network SSRF bypass; MCP-config persistence backdoors on misconfigured public instances; YOLO mode removes approvals and has been used in real post-exploitation; dependency CVEs; display-name allowlist bypasses on some platforms. Strong container isolation is the primary boundary, but operator misconfiguration (exposed dashboard/API as root) has led to live compromises.</td>
-<td>Moderate platform risk: data subject to Meta’s broad privacy practices and advertising ecosystem; limited true computer-use reduces RCE/sandbox-escape surface; primary concerns are account compromise, prompt injection within chat, and Meta’s retention/use of conversation data. No major public agent-specific RCE campaigns comparable to OpenClaw.</td>
-<td>Moderate: managed cloud sandbox reduces self-host exposure; residual risks are prompt injection inside the sandbox, potential data retention by the provider, and any sandbox escape or tool-abuse bugs. Fewer public high-severity incidents than open-source gateways, but full trust is placed in the vendor’s isolation and logging.</td>
-<td>Moderate–managed: strong enterprise controls available (SOC2, data-processing agreements, no-training options on higher tiers); residual risks are classic LLM prompt injection, tool-abuse inside the sandbox, and OpenAI’s own data-handling policies. Lower self-host RCE risk than OpenClaw/Hermes; higher concentration of trust in one vendor.</td>
-<td>Lower relative risk among managed offerings: constitutional AI + explicit approval flows for computer-use; enterprise privacy options; residual prompt-injection and sandbox tool-abuse risks remain. Fewer public large-scale agent-compromise campaigns than open-source gateways. Trust still concentrated in Anthropic.</td>
-<td>Moderate: heavy OAuth access to email/calendar/CRM makes credential and data-exfiltration impact high if the agent or provider is compromised; classic prompt-injection and over-permissioned tool risks. Managed hosting removes self-host RCE surface but requires trust in Lindy’s isolation, logging, and employee access controls.</td>
-<td>Medium (typical self-hosted agent profile): isolation quality depends on the chosen sandbox (Docker/VM); prompt injection and tool abuse can still act inside the sandbox; credential/files in the agent environment are at risk if the sandbox is escaped or misconfigured. Smaller public attack surface and skill marketplace than OpenClaw reduces supply-chain malware exposure, but operator responsibility for hardening remains high.</td>
-<td>Early-beta / medium-high: self-hosted stack (Postgres, Graphile Worker, sandbox supervisor) inherits typical web + container risks; Docker socket or misconfigured E2B/Daytona exposure can escalate; Composio OAuth tokens and browser profiles inside sandboxes are high-value targets; prompt injection remains possible. Smaller public footprint than OpenClaw so far, but code maturity and hardening are still catching up.</td>
-<td>Designed local-first (harness binds 127.0.0.1 only, no auth by design — trusts the local user). Main risks: anything that exposes the harness off-machine, broker bypasses for risky actions, secret echo in logs/API, or shell injection when spawning CLIs. Host-control and BYO-VPS modes enlarge the blast radius if the agent is tricked. Composio tokens and CLI credentials are high-value. Smaller public attack surface than OpenClaw; security policy explicitly scopes these classes of issues.</td>
+<td>Moderate platform risk: data subject to Meta’s broad privacy practices and advertising ecosystem; limited true computer-use reduces RCE/sandbox-escape surface; primary concerns are account compromise, prompt injection within chat, and Meta’s retention/use of conversation data.</td>
+<td>Moderate: managed cloud sandbox reduces self-host exposure; residual risks are prompt injection inside the sandbox, potential data retention by the provider, and any sandbox escape or tool-abuse bugs.</td>
+<td>Moderate–managed: strong enterprise controls available (SOC2, data-processing agreements, no-training options on higher tiers); residual risks are classic LLM prompt injection, tool-abuse inside the sandbox, and OpenAI’s own data-handling policies.</td>
+<td>Lower relative risk among managed offerings: constitutional AI + explicit approval flows for computer-use; enterprise privacy options; residual prompt-injection and sandbox tool-abuse risks remain.</td>
+<td>Moderate: heavy OAuth access to email/calendar/CRM makes credential and data-exfiltration impact high if the agent or provider is compromised; classic prompt-injection and over-permissioned tool risks.</td>
+<td>Medium (typical self-hosted agent profile): isolation quality depends on the chosen sandbox (Docker/VM); prompt injection and tool abuse can still act inside the sandbox; credential/files in the agent environment are at risk if the sandbox is escaped or misconfigured.</td>
+<td>Early-beta / medium-high: self-hosted stack (Postgres, Graphile Worker, sandbox supervisor) inherits typical web + container risks; Docker socket or misconfigured E2B/Daytona exposure can escalate; Composio OAuth tokens and browser profiles inside sandboxes are high-value targets; prompt injection remains possible.</td>
+<td>Designed local-first (harness binds 127.0.0.1 only, no auth by design — trusts the local user). Main risks: anything that exposes the harness off-machine, broker bypasses for risky actions, secret echo in logs/API, or shell injection when spawning CLIs. Host-control and BYO-VPS modes enlarge the blast radius.</td>
+<td>High data sensitivity: terms explicitly allow use of Materials (including personal data) to train/fine-tune models; always-on access to screen, audio, location, email and messaging creates a large privacy surface. Users should read the August 2026 ToS carefully before granting broad device/app permissions. Managed service removes self-host RCE risk but concentrates trust in the vendor.</td>
 </tr>
 <tr>
 <td class="feature">Examples</td>
-<td>https://github.com/elie222/botdirectory.ai. Best references are xAI/Grok Bot official demos, X/Twitter showcase threads from early beta users, and community recreations that mirror its ‘team of bots with computers’ pattern (see OpenMausBot and Rakazo repos below).</td>
+<td>https://github.com/elie222/botdirectory.ai . Best references are xAI/Grok Bot official demos, X/Twitter showcase threads from early beta users, and community recreations that mirror its ‘team of bots with computers’ pattern (see OpenMausBot and Rakazo repos).</td>
 <td>https://github.com/OthmaneBlial/awesome-openclaw-examples (101 tested real-world usecases); https://github.com/openclaw/cookbook (official SDK recipes); https://github.com/hesamsheikh/awesome-openclaw-usecases (community life/automation cases); ClawHub skill registry + https://github.com/javimosch/open-claw-skills (thousands of curated skills); official showcase at openclaw/docs/start/showcase.md</td>
-<td>https://github.com/aliaihub/awesome-hermes-usecases (curated real-world cases with demos); official skills catalog in NousResearch/hermes-agent (website/docs/reference/skills-catalog.md + optional-skills); https://github.com/frankxai/awesome-hermes-agent-skills; https://github.com/codesstar/hermes-skill-atlas; https://github.com/ChuckSRQ/awesome-hermes-skills; production blueprints at corpusiq.io/docs/hermes/agents</td>
-<td>No dedicated public use-case GitHub repo. Best sources are Meta AI help/docs inside WhatsApp/Instagram/Messenger, Meta AI web demos, and community prompt collections shared on X/Reddit for everyday Meta AI workflows (reminders, image gen, quick research, group-chat helpers).</td>
-<td>Official Manus demo walkthroughs and shareable replay links (slides, wide research, browser operator, spreadsheets, web-app building); community prompt/template collections such as ‘Manus AI Prompts: 15 Agent Templates’ and Wide-Research market-map / competitive-intel patterns. No large public GitHub use-case monorepo; best material lives in Manus product shares and tutorial write-ups.</td>
-<td>Official OpenAI cookbook / examples repos (openai/openai-cookbook), Custom GPT store and Actions templates, ChatGPT computer-use / agent demos in OpenAI docs and product blog. Community collections of agent workflows and GPT configs are widely shared on GitHub under ‘chatgpt-agents’ / ‘openai-agents’ searches.</td>
-<td>Anthropic official computer-use and tool-use cookbooks / docs; Claude Projects and Artifacts demos; community repos that wrap Claude computer-use (search ‘claude-computer-use’ / ‘anthropic-computer-use’ on GitHub). Strong reference implementations appear in Anthropic’s own cookbook and partner integration guides.</td>
-<td>Official Lindy template library at lindy.ai/templates (Gmail/Slack alerts, lead enrichment, meeting assistants, support triage, etc.); large collections of ready-made agents demonstrated in ‘30 AI Agents You Can Build in Under 5 Minutes’ style tutorials; workflow-automation category pages on the Lindy site.</td>
-<td>Primary examples live in the project’s own repository and docs (sandbox + desktop-control demos). Community use-cases are still sparse compared with OpenClaw/Hermes; look for forks and ‘Sub8 agent’ example configs that show isolated Linux desktop workflows, browser automation, and multi-agent hand-offs.</td>
-<td>https://github.com/elie222/rakazo (main repo contains the full product, demo video, and self-host docs). Early community examples focus on the built-in bot roles (Chief of Staff, Bug Triage, Expense Manager, Paid Media, Account Manager, etc.) shown on rakazo.com. Because it is still beta, the richest ‘use-case’ material is currently the product itself plus SETUP_PROMPT.md and the self-host guide.</td>
-<td>https://github.com/milind-soni/OpenMausBot (main repo + docs for computer-use, BYO-VPS, companion, voice). Product site openmausbot.com and shareable team-export feature are the primary ‘use-case’ surfaces. Community examples currently revolve around multi-bot teams (research + content + ops bots), Composio-connected Gmail/Slack/GitHub workflows, and live desktop-control demos.</td>
+<td>https://github.com/aliaihub/awesome-hermes-usecases (curated real-world cases with demos); official skills catalog in NousResearch/hermes-agent; https://github.com/frankxai/awesome-hermes-agent-skills; https://github.com/codesstar/hermes-skill-atlas; https://github.com/ChuckSRQ/awesome-hermes-skills; production blueprints at corpusiq.io/docs/hermes/agents</td>
+<td>No dedicated public use-case GitHub repo. Best sources are Meta AI help/docs inside WhatsApp/Instagram/Messenger, Meta AI web demos, and community prompt collections shared on X/Reddit.</td>
+<td>Official Manus demo walkthroughs and shareable replay links (slides, wide research, browser operator, spreadsheets, web-app building); community prompt/template collections such as ‘Manus AI Prompts: 15 Agent Templates’.</td>
+<td>Official OpenAI cookbook / examples repos (openai/openai-cookbook), Custom GPT store and Actions templates, ChatGPT computer-use / agent demos in OpenAI docs and product blog.</td>
+<td>Anthropic official computer-use and tool-use cookbooks / docs; Claude Projects and Artifacts demos; community repos that wrap Claude computer-use.</td>
+<td>Official Lindy template library at lindy.ai/templates (Gmail/Slack alerts, lead enrichment, meeting assistants, support triage, etc.); large collections of ready-made agents in tutorial videos.</td>
+<td>Primary examples live in the project’s own repository and docs (sandbox + desktop-control demos). Community use-cases still sparse compared with OpenClaw/Hermes.</td>
+<td>https://github.com/elie222/rakazo (main repo + demo + self-host docs). Early community examples focus on the built-in bot roles shown on rakazo.com (Chief of Staff, Bug Triage, Expense Manager, etc.).</td>
+<td>https://github.com/milind-soni/OpenMausBot (main repo + docs). Product site and shareable team-export feature are the primary use-case surfaces. Community examples revolve around multi-bot teams and Composio-connected workflows.</td>
+<td>No public open-source repo (closed product). Best material is user reports and demos on X (booking flights/hotels, shopping overnight, negotiating with vendors on WhatsApp, finding in-network doctors + filling paperwork, lowering bills, etc.) and the product site instinct.co. Frequently compared directly with Grok Bot and OpenClaw as the consumer-friendly version of the same pattern.</td>
 </tr>
-<tr class="section"><td colspan="12">QUICK POSITIONING</td></tr>
+<tr class="section"><td colspan="13">QUICK POSITIONING</td></tr>
 <tr>
 <td class="feature">Quick Positioning</td>
 <td class="quick">The original high-polish, fully managed 'AI teammates with their own computers' product from xAI. Highest convenience and integration quality, but locked to Grok models, expensive, and you do not own the runtime or the data plane.</td>
@@ -352,13 +370,13 @@
 <td class="quick">Lightweight open-source focus on isolated Linux desktops per agent. Good middle ground for users who want real computer-use sandboxes without the full multi-channel gateway complexity of OpenClaw or the learning-loop emphasis of Hermes.</td>
 <td class="quick">One of the closest open-source spiritual successors to Grok Bot: persistent bots that each get a real computer, can sign into tools, run Markdown routines, and hand work between peers — with full ownership, model freedom, and no vendor lock-in. Still early beta.</td>
 <td class="quick">Purest open-source 'Grok Bot shape' clone: messaging-style roster of named bots, each with personality, model, memory, computer, and tools. Biggest differentiator is BYO agent CLIs (reuses Claude/Codex/Grok/Cursor subscriptions you already pay for). Local-first with strong approval cards and editable Markdown memory.</td>
+<td class="quick">“OpenClaw for normal people.” Fully managed personal agent with iMessage/phone as the interface, extreme proactivity, and real-world task completion (bookings, shopping, admin, calls). Strongest simplicity and everyday-life focus; weakest on ownership, model choice, and transparency of data use.</td>
 </tr>
-</tbody></table>
-Links:
-                        <a href="https://github.com/m-a-sch">Github</a>;
-                        <a href="https://huggingface.co/maschenk">Hugging Face</a>;
-                        <a href="https://replit.com/@maschenk">Replit</a>
-                        <a href="https://etherscan.io/token/0xbf3cf56c587f5e833337200536a52e171ef29a09?a=0x935320e36db80e27cfbc05bf16a4f305bc461460">AZTEC's "KYC"</a> Built with Grok's help.
-
+</tbody></table>,Links:
+<a href="https://github.com/m-a-sch">Github</a>;
+<a href="https://huggingface.co/maschenk">Hugging Face</a>;
+<a href="https://replit.com/@maschenk">Replit</a>
+<a href="https://etherscan.io/token/0xbf3cf56c587f5e833337200536a52e171ef29a09?a=0x935320e36db80e27cfbc05bf16a4f305bc461460">AZTEC's KYC</a> Built with Grok's help.
 </div>
 </body></html>
+
