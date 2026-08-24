@@ -95,8 +95,9 @@
 <th>Rakazo</th>
 <th>OpenMausBot</th>
 <th>Instinct</th>
+<th>T3 Code</th>
 </tr></thead><tbody>
-<tr class="section"><td colspan="13">OWNERSHIP</td></tr>
+<tr class="section"><td colspan="14">OWNERSHIP</td></tr>
 <tr>
 <td class="feature">License</td>
 <td>Proprietary (xAI)</td>
@@ -111,6 +112,7 @@
 <td>Apache-2.0</td>
 <td>MIT (notes also reference Apache-2.0 adoption)</td>
 <td>Proprietary (Spear Street Technology, Inc.)</td>
+<td>MIT</td>
 </tr>
 <tr>
 <td class="feature">Hosting</td>
@@ -126,6 +128,7 @@
 <td>Fully self-hosted (Docker / E2B / Daytona / Box); managed Cloud waitlisted</td>
 <td>Local-first (127.0.0.1 harness); optional cloud Box desktops, Local VM, or BYO VPS via SSH + Cua containers</td>
 <td>Managed cloud (invite-only / waitlist while scaling compute)</td>
+<td>Self-hosted (local Node WebSocket server); optional remote via LAN, Tailscale, or T3 Connect tunnel. Clients: web (app.t3.codes or local), Electron desktop, iOS/Android</td>
 </tr>
 <tr>
 <td class="feature">Machine model</td>
@@ -141,6 +144,7 @@
 <td>One sandboxed computer per bot (or shared Team Computer) — browser, shell, graphical desktop</td>
 <td>Per-bot computer: cloud Linux desktop (live preview), isolated Local VM, host control (macOS + Ubuntu GNOME beta), or self-hosted VPS container</td>
 <td>Cloud + device access (phone + computer use in the same way a human would); connects to email, messaging, screen, audio, location and more</td>
+<td>Runs on the host machine; agents execute via their native CLIs (no separate sandbox VM per bot by default). Git worktree isolation per thread</td>
 </tr>
 <tr>
 <td class="feature">State ownership</td>
@@ -156,8 +160,9 @@
 <td>User-owned (Postgres + DATA_DIR workspaces, browser profiles, audit logs)</td>
 <td>User-owned (~/.openmausbot workspaces, MEMORY.md, transcripts, keys)</td>
 <td>Provider-controlled; terms grant license to use Materials for training/fine-tuning</td>
+<td>User-owned (sessions, threads, git state on your machine)</td>
 </tr>
-<tr class="section"><td colspan="13">CONTROL</td></tr>
+<tr class="section"><td colspan="14">CONTROL</td></tr>
 <tr>
 <td class="feature">Approval model</td>
 <td>Human-in-the-loop with takeover; bots ask when needed</td>
@@ -172,6 +177,7 @@
 <td>Configurable; request_takeover + full human desktop takeover</td>
 <td>Explicit Allow/Deny cards in chat; temporary human takeover; agents can request human operation</td>
 <td>Highly proactive / resourceful by design; can reset passwords, complete purchases, fill paperwork, make calls with relatively little friction (users report aggressive autonomy)</td>
+<td>Provider-native approvals + dual runtime modes (Full Access / Supervised); approval prompts surfaced in the UI</td>
 </tr>
 <tr>
 <td class="feature">Model choice</td>
@@ -187,6 +193,7 @@
 <td>Fully flexible via Pi harness (Claude, GPT, Grok, local, OpenRouter, ChatGPT/Copilot/SuperGrok OAuth)</td>
 <td>Per-bot picker; runs on Claude, Codex, Grok, Cursor Agent CLI, Gemini, etc. using existing logins/subscriptions</td>
 <td>Proprietary core model trained for personal life nuances</td>
+<td>Bring-your-own agent CLIs — Claude Code, Codex, Cursor, Grok Build, OpenCode (and forks add more). Switch models/providers mid-thread</td>
 </tr>
 <tr>
 <td class="feature">Action layer</td>
@@ -202,8 +209,9 @@
 <td>Browser, terminal, files, graphical desktop + optional Composio apps</td>
 <td>Computer use (Cua), browser (embedded Chromium/CDP), files, 500+ apps via Composio, MCP plugins</td>
 <td>Phone + computer use, messaging (iMessage primary), calls, bookings, shopping, form-filling, app connections</td>
+<td>Whatever the underlying coding agent can do (file edit, terminal, browser tools if the CLI supports them) + T3’s git worktree isolation, diff viewer, one-click commit/push/PR</td>
 </tr>
-<tr class="section"><td colspan="13">MEMORY AND SKILLS</td></tr>
+<tr class="section"><td colspan="14">MEMORY AND SKILLS</td></tr>
 <tr>
 <td class="feature">Memory</td>
 <td>Persistent per-bot conversation + memory</td>
@@ -218,6 +226,7 @@
 <td>Persistent per-bot conversations, memory, and history</td>
 <td>Per-bot workspace + file-based (MEMORY.md into prompt + topic files); plain Markdown editable by user</td>
 <td>Long-running continuous relationship / single thread with deep personal context</td>
+<td>Persistent threads / sessions managed by T3; long-term memory is whatever the chosen agent CLI provides</td>
 </tr>
 <tr>
 <td class="feature">Skills</td>
@@ -233,8 +242,9 @@
 <td>Markdown routines (teach once → readable/editable/committable)</td>
 <td>Personality + model per bot; shareable teams/crews; MCP plugins; routines early/coming</td>
 <td>Trained for everyday life tasks (follow-ups, travel, home services, admin, negotiation)</td>
+<td>Relies on the skills/tools of the connected agent CLIs; T3 itself is the control surface, not a skill runtime</td>
 </tr>
-<tr class="section"><td colspan="13">COORDINATION</td></tr>
+<tr class="section"><td colspan="14">COORDINATION</td></tr>
 <tr>
 <td class="feature">Multi-agent handoff</td>
 <td>Supported (bots can coordinate / hand off)</td>
@@ -249,6 +259,7 @@
 <td>Strong — spawn peer bots (own thread + computer) or short-lived subagents</td>
 <td>Bot-to-bot communication; exportable/shareable teams</td>
 <td>Primarily single continuous agent; orchestration is internal rather than multi-bot roster</td>
+<td>Parallel agents across projects/worktrees; orchestration is ‘run many coding agents side-by-side’ rather than multi-bot personal teams</td>
 </tr>
 <tr>
 <td class="feature">Channels</td>
@@ -264,6 +275,7 @@
 <td>Web app, Electron desktop, Expo mobile; voice mode (ElevenLabs/OpenAI/Cartesia)</td>
 <td>Native desktop app (macOS, Windows, Ubuntu); phone companion (LAN/tailnet); voice (macOS STT + ElevenLabs)</td>
 <td>iMessage / text + voice calls as primary interface; no new UI to learn</td>
+<td>Web app, Electron desktop, native mobile (iOS/Android); remote control over network/Tailscale/T3 Connect</td>
 </tr>
 <tr>
 <td class="feature">Scheduling</td>
@@ -279,8 +291,9 @@
 <td>Routines via Graphile Worker</td>
 <td>Early / limited native scheduling (routines noted as coming)</td>
 <td>Proactive (calls/texts you, follows up, works overnight)</td>
+<td>Session/thread oriented; not a general cron/routines system like Hermes or Rakazo</td>
 </tr>
-<tr class="section"><td colspan="13">RUNNING IT</td></tr>
+<tr class="section"><td colspan="14">RUNNING IT</td></tr>
 <tr>
 <td class="feature">Setup</td>
 <td>Subscription-based (SuperGrok Heavy / high-tier plans); waitlist / early access</td>
@@ -295,6 +308,7 @@
 <td>Clone + Node 22 / pnpm / Docker; still early beta</td>
 <td>Download signed desktop app (or build); requires underlying agent CLIs already installed &amp; authenticated</td>
 <td>Invite-only / waitlist (instinct.co); existing members can invite</td>
+<td>npx t3@latest (or desktop installers via brew/winget/GitHub releases). Requires at least one authenticated provider CLI (codex / claude / cursor-agent / grok / opencode)</td>
 </tr>
 <tr>
 <td class="feature">Ops burden</td>
@@ -310,6 +324,7 @@
 <td>Medium (Postgres, API, worker, sandbox supervisor)</td>
 <td>Low–medium for pure local; higher with BYO VPS or multiple cloud boxes</td>
 <td>None (fully managed consumer product)</td>
+<td>Low for local use; medium if you expose the server remotely</td>
 </tr>
 <tr>
 <td class="feature">Cost</td>
@@ -325,6 +340,7 @@
 <td>Free software; only LLM keys + optional remote sandbox costs; unlimited bots</td>
 <td>Free forever; unlimited bots; only existing AI subscriptions / optional voice &amp; sandbox costs</td>
 <td>Not publicly listed (private access / scaling phase)</td>
+<td>Free software (MIT). Only cost is your existing Claude/Codex/Cursor/Grok/OpenCode subscriptions</td>
 </tr>
 <tr>
 <td class="feature">Security risk</td>
@@ -340,6 +356,7 @@
 <td>Early-beta / medium-high: self-hosted stack (Postgres, Graphile Worker, sandbox supervisor) inherits typical web + container risks; Docker socket or misconfigured E2B/Daytona exposure can escalate; Composio OAuth tokens and browser profiles inside sandboxes are high-value targets; prompt injection remains possible.</td>
 <td>Designed local-first (harness binds 127.0.0.1 only, no auth by design — trusts the local user). Main risks: anything that exposes the harness off-machine, broker bypasses for risky actions, secret echo in logs/API, or shell injection when spawning CLIs. Host-control and BYO-VPS modes enlarge the blast radius.</td>
 <td>High data sensitivity: terms explicitly allow use of Materials (including personal data) to train/fine-tune models; always-on access to screen, audio, location, email and messaging creates a large privacy surface. Users should read the August 2026 ToS carefully before granting broad device/app permissions. Managed service removes self-host RCE risk but concentrates trust in the vendor.</td>
+<td>Local-first by design (server owns all CLI processes). Main risks: exposing the WebSocket server off-machine without proper auth/network controls; whatever privileges the underlying agent CLIs have on the host; provider credential handling. Smaller general-purpose attack surface than OpenClaw because it is coding-agent focused and does not ship a skill marketplace.</td>
 </tr>
 <tr>
 <td class="feature">Examples</td>
@@ -355,8 +372,9 @@
 <td>https://github.com/elie222/rakazo (main repo + demo + self-host docs). Early community examples focus on the built-in bot roles shown on rakazo.com (Chief of Staff, Bug Triage, Expense Manager, etc.).</td>
 <td>https://github.com/milind-soni/OpenMausBot (main repo + docs). Product site and shareable team-export feature are the primary use-case surfaces. Community examples revolve around multi-bot teams and Composio-connected workflows.</td>
 <td>No public open-source repo (closed product). Best material is user reports and demos on X (booking flights/hotels, shopping overnight, negotiating with vendors on WhatsApp, finding in-network doctors + filling paperwork, lowering bills, etc.) and the product site instinct.co. Frequently compared directly with Grok Bot and OpenClaw as the consumer-friendly version of the same pattern.</td>
+<td>https://github.com/pingdotgg/t3code (main repo, docs, AGENTS.md); official site t3.codes; install docs and provider matrix in the repo; community forks that expand provider support (e.g. ACP editions)</td>
 </tr>
-<tr class="section"><td colspan="13">QUICK POSITIONING</td></tr>
+<tr class="section"><td colspan="14">QUICK POSITIONING</td></tr>
 <tr>
 <td class="feature">Quick Positioning</td>
 <td class="quick">The original high-polish, fully managed 'AI teammates with their own computers' product from xAI. Highest convenience and integration quality, but locked to Grok models, expensive, and you do not own the runtime or the data plane.</td>
@@ -371,6 +389,7 @@
 <td class="quick">One of the closest open-source spiritual successors to Grok Bot: persistent bots that each get a real computer, can sign into tools, run Markdown routines, and hand work between peers — with full ownership, model freedom, and no vendor lock-in. Still early beta.</td>
 <td class="quick">Purest open-source 'Grok Bot shape' clone: messaging-style roster of named bots, each with personality, model, memory, computer, and tools. Biggest differentiator is BYO agent CLIs (reuses Claude/Codex/Grok/Cursor subscriptions you already pay for). Local-first with strong approval cards and editable Markdown memory.</td>
 <td class="quick">“OpenClaw for normal people.” Fully managed personal agent with iMessage/phone as the interface, extreme proactivity, and real-world task completion (bookings, shopping, admin, calls). Strongest simplicity and everyday-life focus; weakest on ownership, model choice, and transparency of data use.</td>
+<td class="quick">Open-source control plane / GUI for coding agents. Best-in-class mobile + desktop + web surface that drives Claude Code, Codex, Cursor, Grok Build and OpenCode with your existing subs. Not a general personal-life agent (Instinct/Grok Bot/OpenClaw territory) — it is the polished harness for parallel coding work, git worktrees, and one-click PRs.</td>
 </tr>
 </tbody></table>,Links:
 <a href="https://github.com/m-a-sch">Github</a>;
@@ -379,4 +398,5 @@
 <a href="https://etherscan.io/token/0xbf3cf56c587f5e833337200536a52e171ef29a09?a=0x935320e36db80e27cfbc05bf16a4f305bc461460">AZTEC's KYC</a> Built with Grok's help.
 </div>
 </body></html>
+
 
