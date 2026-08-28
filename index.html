@@ -296,19 +296,19 @@
 <tr class="section"><td colspan="14">RUNNING IT</td></tr>
 <tr>
 <td class="feature">Setup</td>
-<td>Subscription-based (SuperGrok Heavy / high-tier plans); waitlist / early access</td>
-<td>Relatively fast (npm / onboard wizard); ~30 min typical</td>
-<td>Single install command; 2–4 hours for full assembly typical</td>
-<td>Zero (already inside Meta apps)</td>
-<td>Sign-up + credits</td>
-<td>ChatGPT Plus / Team / Enterprise subscription</td>
-<td>Claude Pro / Team / API access</td>
-<td>Sign-up and connect accounts</td>
-<td>Self-host (Docker / local)</td>
-<td>Clone + Node 22 / pnpm / Docker; still early beta</td>
-<td>Download signed desktop app (or build); requires underlying agent CLIs already installed &amp; authenticated</td>
-<td>Invite-only / waitlist (instinct.co); existing members can invite</td>
-<td>npx t3@latest (or desktop installers via brew/winget/GitHub releases). Requires at least one authenticated provider CLI (codex / claude / cursor-agent / grok / opencode)</td>
+<td>Subscription-based (SuperGrok Heavy / high-tier plans); waitlist / early access. Primary clients are native desktop (macOS/Windows) and iOS apps — no specific browser required for the control UI. The bot’s own computer uses a managed cloud browser.</td>
+<td>Relatively fast (npm / onboard wizard); ~30 min typical. Agent browser control requires a Chromium-based browser (Chrome, Brave, Edge, or Chromium) — Safari and Firefox are not supported (CDP). Managed profile or Chrome-extension relay both expect Chromium.</td>
+<td>Single install command; 2–4 hours for full assembly typical. Web dashboard works in any modern browser. Local/CDP browser automation and the official Chrome connector need a Chromium-family browser (Chrome, Brave, Edge, Chromium); Safari is not supported for the connector.</td>
+<td>Zero (already inside Meta apps). Web interface works in any modern browser (Chrome, Safari, Firefox, Edge).</td>
+<td>Sign-up + credits. Web app works in modern browsers. “My Browser” / Browser Operator connector requires the extension on Chrome or Edge.</td>
+<td>ChatGPT Plus / Team / Enterprise subscription. Web app works in any modern browser (Chrome, Safari, Firefox, Edge); also native apps.</td>
+<td>Claude Pro / Team / API access. Web app works in any modern browser; computer-use runs in Anthropic’s managed environment (not your local Safari/Chrome).</td>
+<td>Sign-up and connect accounts. Web app works in any modern browser (Chrome, Safari, Firefox, Edge).</td>
+<td>Self-host (Docker / local). Control UI is typically web-based (any modern browser). Agent browser automation, when used, generally expects Chromium-based browsers.</td>
+<td>Clone + Node 22 / pnpm / Docker; still early beta. Control UI (web) works in any modern browser (Chrome, Safari, Firefox, Edge). Each bot’s sandbox ships its own browser (Chromium inside Docker/E2B/etc.) — you do not need a local Chrome install for the agents.</td>
+<td>Download signed desktop app (or build); requires underlying agent CLIs already installed &amp; authenticated. Desktop app embeds Chromium for in-app browser use — no separate Chrome/Safari install required for bot browsing. External links open in the system default browser.</td>
+<td>Invite-only / waitlist (instinct.co); existing members can invite. Primary interface is iMessage / phone / voice — no browser required for day-to-day use. Any web surfaces work in modern browsers.</td>
+<td>npx t3@latest (or desktop installers via brew/winget/GitHub releases). Requires at least one authenticated provider CLI. Control UI (web) works in any modern browser (Chrome, Safari, Firefox, Edge); desktop/mobile apps do not depend on a specific system browser. Agents themselves run as CLIs on the host.</td>
 </tr>
 <tr>
 <td class="feature">Ops burden</td>
@@ -360,7 +360,7 @@
 </tr>
 <tr>
 <td class="feature">Examples</td>
-<td>https://github.com/elie222/botdirectory.ai . Best references are xAI/Grok Bot official demos, X/Twitter showcase threads from early beta users, and community recreations that mirror its ‘team of bots with computers’ pattern (see OpenMausBot and Rakazo repos).</td>
+<td>https://github.com/elie222/botdirectory.ai . Best references are xAI/Grok Bot official demos, botDirectory.ai, X/Twitter showcase threads from early beta users, and community recreations that mirror its ‘team of bots with computers’ pattern (see OpenMausBot and Rakazo repos).</td>
 <td>https://github.com/OthmaneBlial/awesome-openclaw-examples (101 tested real-world usecases); https://github.com/openclaw/cookbook (official SDK recipes); https://github.com/hesamsheikh/awesome-openclaw-usecases (community life/automation cases); ClawHub skill registry + https://github.com/javimosch/open-claw-skills (thousands of curated skills); official showcase at openclaw/docs/start/showcase.md</td>
 <td>https://github.com/aliaihub/awesome-hermes-usecases (curated real-world cases with demos); official skills catalog in NousResearch/hermes-agent; https://github.com/frankxai/awesome-hermes-agent-skills; https://github.com/codesstar/hermes-skill-atlas; https://github.com/ChuckSRQ/awesome-hermes-skills; production blueprints at corpusiq.io/docs/hermes/agents</td>
 <td>No dedicated public use-case GitHub repo. Best sources are Meta AI help/docs inside WhatsApp/Instagram/Messenger, Meta AI web demos, and community prompt collections shared on X/Reddit.</td>
@@ -398,5 +398,6 @@
 <a href="https://etherscan.io/token/0xbf3cf56c587f5e833337200536a52e171ef29a09?a=0x935320e36db80e27cfbc05bf16a4f305bc461460">AZTEC's KYC</a> Built with Grok's help.
 </div>
 </body></html>
+
 
 
