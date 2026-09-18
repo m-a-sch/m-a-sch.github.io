@@ -99,8 +99,9 @@
 <th>T3 Code</th>
 <th>Squad.so</th>
 <th>Enjoy</th>
+<th>Paperclip</th>
 </tr></thead><tbody>
-<tr class="section"><td colspan="17">OWNERSHIP</td></tr>
+<tr class="section"><td colspan="18">OWNERSHIP</td></tr>
 <tr>
 <td class="feature">License</td>
 <td>Proprietary (xAI)</td>
@@ -119,6 +120,7 @@
 <td>MIT</td>
 <td>Proprietary (managed SaaS; formerly MissionControlHQ)</td>
 <td>Proprietary (desktop app; releases via GitHub atmoio/enjoy-releases)</td>
+<td>MIT (open source)</td>
 </tr>
 <tr>
 <td class="feature">Hosting</td>
@@ -138,6 +140,7 @@
 <td>Self-hosted (local Node WebSocket server); optional remote via LAN, Tailscale, or T3 Connect tunnel. Clients: web (app.t3.codes or local), Electron desktop, iOS/Android</td>
 <td>Managed cloud (dedicated workspace / cloud computer for the squad). Primary product is not self-hosted; export/backup available on cancel</td>
 <td>Local-first desktop (macOS 13+ Apple Silicon &amp; Intel, Windows x64). Optional phone/browser remote when desktop is awake and online; end-to-end encrypted device messages on paid plan</td>
+<td>Self-hosted (Node.js server + React UI); optional third-party hosted instances. Single deployment can run multiple isolated companies</td>
 </tr>
 <tr>
 <td class="feature">Machine model</td>
@@ -157,6 +160,7 @@
 <td>Runs on the host machine; agents execute via their native CLIs (no separate sandbox VM per bot by default). Git worktree isolation per thread</td>
 <td>Dedicated cloud infrastructure for the squad; separate browser profile (and own logins/files) per teammate on shared team computer</td>
 <td>Runs coding agents on the host via installed CLIs (Claude Code, Codex, Grok Build). No separate cloud sandbox per bot; project terminals/previews managed in-app</td>
+<td>Orchestration layer only — agents run via adapters (Claude Code on host, Codex, Cursor, OpenClaw, shell, HTTP heartbeats). No built-in cloud desktop per agent; workers bring their own runtime/computer</td>
 </tr>
 <tr>
 <td class="feature">State ownership</td>
@@ -176,8 +180,9 @@
 <td>User-owned (sessions, threads, git state on your machine)</td>
 <td>Provider-hosted workspace; FAQ states workspace data is not used as training material; export available before cancel</td>
 <td>User-owned local files — conversations, docs, recipes, and project state live in a local .enjoy folder (plain files)</td>
+<td>User-owned (your deployment, tickets, audit log, org data)</td>
 </tr>
-<tr class="section"><td colspan="17">CONTROL</td></tr>
+<tr class="section"><td colspan="18">CONTROL</td></tr>
 <tr>
 <td class="feature">Approval model</td>
 <td>Human-in-the-loop with takeover; bots ask when needed</td>
@@ -196,6 +201,7 @@
 <td>Provider-native approvals + dual runtime modes (Full Access / Supervised); approval prompts surfaced in the UI</td>
 <td>Human-in-the-loop via tickets/approvals (draft-for-review for email; spending and real-world purchases gated by briefing); phone as decision device for approvals</td>
 <td>Provider-native agent approvals; Enjoy is the workspace surface, not a separate policy engine</td>
+<td>Governance layer: budgets per agent, ask-first / allow / off per connector action, human approve strategy and spend caps; pause / resume / override / reassign / terminate</td>
 </tr>
 <tr>
 <td class="feature">Model choice</td>
@@ -215,6 +221,7 @@
 <td>Bring-your-own agent CLIs — Claude Code, Codex, Cursor, Grok Build, OpenCode (and forks add more). Switch models/providers mid-thread</td>
 <td>Bring-your-own AI: ChatGPT (Codex), Claude, Claude Code, Grok/SuperGrok, Gemini, GitHub Copilot, Kimi, MiniMax, Z.AI, Qwen Cloud, Cloudflare Workers AI, OpenCode, OpenRouter. Per-agent and per-schedule model overrides; multi-account stacking and ordered fallback chains</td>
 <td>Bring-your-own agent CLIs — Claude Code, Codex, Grok Build (using existing Claude/ChatGPT/Grok subscriptions). Switch agent mid-conversation</td>
+<td>Fully bring-your-own agent runtime — Claude Code, Codex, Cursor, OpenClaw, Hermes, OpenCode, Gemini, HTTP/bash, etc. Model choice is whatever each hired agent uses</td>
 </tr>
 <tr>
 <td class="feature">Action layer</td>
@@ -234,8 +241,9 @@
 <td>Whatever the underlying coding agent can do (file edit, terminal, browser tools if the CLI supports them) + T3’s git worktree isolation, diff viewer, one-click commit/push/PR</td>
 <td>Tools/integrations, browser use on cloud profiles, email (optional per-agent inboxes), research tools, MCP/custom credentials; connects to business tools with scope presets and per-agent access</td>
 <td>Whatever the underlying coding agent can do (edit, terminal, tools) plus Enjoy’s project management: multi-agent threads, docs/recipes, local previews/servers, check-ins</td>
+<td>Delegates to hired agents’ tools; Connectors (Gmail, Calendar, GitHub, etc.) with per-agent account and action permissions</td>
 </tr>
-<tr class="section"><td colspan="17">MEMORY AND SKILLS</td></tr>
+<tr class="section"><td colspan="18">MEMORY AND SKILLS</td></tr>
 <tr>
 <td class="feature">Memory</td>
 <td>Persistent per-bot conversation + memory</td>
@@ -254,6 +262,7 @@
 <td>Persistent threads / sessions managed by T3; long-term memory is whatever the chosen agent CLI provides</td>
 <td>Persistent workspace context, missions, tickets, docs, and agent history across sessions</td>
 <td>Project-local state in .enjoy (threads, docs, recipes); long-term agent memory is whatever the chosen CLI provides</td>
+<td>Company/task history, tickets, comments, immutable audit trail; agent memory lives in the underlying agent runtime</td>
 </tr>
 <tr>
 <td class="feature">Skills</td>
@@ -273,8 +282,9 @@
 <td>Relies on the skills/tools of the connected agent CLIs; T3 itself is the control surface, not a skill runtime</td>
 <td>Playbooks / specialist roles designed with the Lead agent; schedules and recurring runs; not a public skill marketplace like ClawHub</td>
 <td>Recipes and project workflows in the local folder; relies on connected agent capabilities rather than a public skill marketplace</td>
+<td>Company templates (pre-built org packs); connectors and role job descriptions; not a ClawHub-style public skill marketplace</td>
 </tr>
-<tr class="section"><td colspan="17">COORDINATION</td></tr>
+<tr class="section"><td colspan="18">COORDINATION</td></tr>
 <tr>
 <td class="feature">Multi-agent handoff</td>
 <td>Supported (bots can coordinate / hand off)</td>
@@ -293,6 +303,7 @@
 <td>Parallel agents across projects/worktrees; orchestration is ‘run many coding agents side-by-side’ rather than multi-bot personal teams</td>
 <td>Strong — Lead Agent coordinates; specialists claim tickets on a shared mission board, @-mention style routing, threaded discussion</td>
 <td>Multiple agent threads in one workspace; switch brains mid-thread; not a multi-bot personal-life roster</td>
+<td>Core product — org chart, reporting lines, CEO strategy → task creation → delegation; tickets, queues, @-style coordination across roles</td>
 </tr>
 <tr>
 <td class="feature">Channels</td>
@@ -312,6 +323,7 @@
 <td>Web app, Electron desktop, native mobile (iOS/Android); remote control over network/Tailscale/T3 Connect</td>
 <td>Dashboard chat (primary), optional Telegram and Discord bots, iOS app; read-only share links for observers</td>
 <td>Native desktop app (primary); paid plan adds phone and browser clients (desktop must remain online)</td>
+<td>Web dashboard (primary); mobile-friendly monitoring; agents themselves may expose chat channels (e.g. OpenClaw workers)</td>
 </tr>
 <tr>
 <td class="feature">Scheduling</td>
@@ -331,8 +343,9 @@
 <td>Session/thread oriented; not a general cron/routines system like Hermes or Rakazo</td>
 <td>Native schedules + heartbeats; agents work offline 24/7</td>
 <td>In-app check-ins / on-demand flows; not a general 24/7 personal-agent scheduler</td>
+<td>Heartbeats and routines; agents wake on schedule / tickets; 24/7 capable if workers and host stay up</td>
 </tr>
-<tr class="section"><td colspan="17">RUNNING IT</td></tr>
+<tr class="section"><td colspan="18">RUNNING IT</td></tr>
 <tr>
 <td class="feature">Setup</td>
 <td>Subscription-based (SuperGrok Heavy / high-tier plans); waitlist / early access. Primary clients are native desktop (macOS/Windows) and iOS apps — no specific browser required for the control UI. The bot’s own computer uses a managed cloud browser.</td>
@@ -351,6 +364,7 @@
 <td>npx t3@latest (or desktop installers via brew/winget/GitHub releases). Requires at least one authenticated provider CLI. Control UI (web) works in any modern browser (Chrome, Safari, Firefox, Edge); desktop/mobile apps do not depend on a specific system browser. Agents themselves run as CLIs on the host.</td>
 <td>Sign up at squad.so → connect AI provider(s) → ~5 min provisioning → ~10 min Lead Agent onboarding chat. Web dashboard works in any modern browser (Chrome, Safari, Firefox, Edge). iOS app on the App Store. Claude Code path may need Node.js/terminal for setup-token.</td>
 <td>Download Mac (.dmg) or Windows installer from enjoy.dev / GitHub releases. Install and authenticate at least one of Claude Code, Codex, or Grok Build. Free: one project, desktop only. Unlimited $14.99/mo for more projects and remote clients. Control UI is the desktop app; web/phone on paid plan work in modern browsers.</td>
+<td>npx paperclipai (or onboard flow); configure DB, hire CEO first, then specialists. Web UI works in any modern browser. Requires at least one agent adapter (e.g. Claude Code installed for local Mac runs). Company templates importable from paperclipai/companies.</td>
 </tr>
 <tr>
 <td class="feature">Ops burden</td>
@@ -370,6 +384,7 @@
 <td>Low for local use; medium if you expose the server remotely</td>
 <td>Very low (fully managed)</td>
 <td>Low for local use; phone access requires desktop left on and connected</td>
+<td>Medium (self-host Node server, DB, keep agent runtimes healthy); lower if using a hosted Paperclip instance</td>
 </tr>
 <tr>
 <td class="feature">Cost</td>
@@ -389,6 +404,7 @@
 <td>Free software (MIT). Only cost is your existing Claude/Codex/Cursor/Grok/OpenCode subscriptions</td>
 <td>$99/month flat + your own AI subscriptions (no Squad token markup). 7-day money-back. Research-tool credits and optional email add-on may apply within caps</td>
 <td>Free (1 project) or $14.99/month unlimited. Provider subscription costs separate (Claude / ChatGPT / Grok)</td>
+<td>Free software (MIT). Only costs are your compute + whatever AI subscriptions/API the hired agents use. Some hosted offerings exist at low monthly fees</td>
 </tr>
 <tr>
 <td class="feature">Security risk</td>
@@ -408,6 +424,7 @@
 <td>Local-first by design (server owns all CLI processes). Main risks: exposing the WebSocket server off-machine without proper auth/network controls; whatever privileges the underlying agent CLIs have on the host; provider credential handling. Smaller general-purpose attack surface than OpenClaw because it is coding-agent focused and does not ship a skill marketplace.</td>
 <td>Moderate managed-SaaS profile: trust in vendor isolation, credential vault (write-only secrets), and OAuth to your AI/tool accounts. Separate browser profiles per teammate reduce cross-bot credential bleed vs single shared machine designs. Residual risks are prompt injection, over-permissioned integrations, and provider-side retention. FAQ: data is not training material. Not self-hosted, so no OpenClaw-style exposed-gateway RCE surface, but full trust is concentrated in Squad’s cloud and staff access controls.</td>
 <td>Local-first: agents and secrets stay on your machine; remote channel is end-to-end encrypted on paid plan. Main risks are host privileges of the coding CLIs, anything that exposes the desktop remotely while online, and provider credential handling. Smaller general-purpose attack surface than OpenClaw (coding-focused, no public skill registry). Proprietary binary — trust in the vendor’s release pipeline.</td>
+<td>Self-hosted control-plane risk profile: protect the dashboard and DB; connector OAuth tokens and per-agent permissions are high-value; misconfigured budgets/approvals can still burn tokens or take real actions via workers. No OpenClaw-style public skill malware surface of its own, but hired agents (especially OpenClaw) inherit their own risks. Audit log and governance are the main mitigations.</td>
 </tr>
 <tr>
 <td class="feature">Examples</td>
@@ -427,8 +444,9 @@
 <td>https://github.com/pingdotgg/t3code (main repo, docs, AGENTS.md); official site t3.codes; install docs and provider matrix in the repo; community forks that expand provider support (e.g. ACP editions)</td>
 <td>Official docs and playbooks at squad.so/resources/docs; product marketing and Grok Bot comparison/examples content on squad.so/resources (e.g. grok-bot-examples, mission-control comparisons). Lead proposes roster after business interview; typical lanes: support, content, ops, CFO-style review with draft-before-send rules.</td>
 <td>Product site enjoy.dev (demo, positioning for solo builders). Workflows: plan with one agent, build with another; multi-project management; local preview/API servers from the workspace; morning check-ins and release readiness flows.</td>
+<td>https://github.com/paperclipai/paperclip (core); paperclipai/companies (templates); docs at docs.paperclip.ing; blog demos of hiring CEO → strategy → engineers/marketers; Connectors launch (per-role Gmail/GitHub access); comparisons positioning Paperclip as company OS over OpenClaw/Claude Code employees.</td>
 </tr>
-<tr class="section"><td colspan="17">QUICK POSITIONING</td></tr>
+<tr class="section"><td colspan="18">QUICK POSITIONING</td></tr>
 <tr>
 <td class="feature">Quick Positioning</td>
 <td class="quick">The original high-polish, fully managed 'AI teammates with their own computers' product from xAI. Highest convenience and integration quality, but locked to Grok models, expensive, and you do not own the runtime or the data plane.</td>
@@ -447,6 +465,7 @@
 <td class="quick">Open-source control plane / GUI for coding agents. Best-in-class mobile + desktop + web surface that drives Claude Code, Codex, Cursor, Grok Build and OpenCode with your existing subs. Not a general personal-life agent (Instinct/Grok Bot/OpenClaw territory) — it is the polished harness for parallel coding work, git worktrees, and one-click PRs.</td>
 <td class="quick">Managed multi-model AI squad with a Lead + specialists, shared task board, and 24/7 schedules — on the AI plans you already pay for. Closest commercial competitor to ‘Grok Bot as a multi-provider team operation’: stronger model freedom and ops dashboard than Grok Bot, weaker ownership than self-hosted OpenClaw/Hermes/Rakazo/OpenMausBot. Best when you want a standing business team without running servers.</td>
 <td class="quick">Polished desktop workspace for Claude Code / Codex / Grok Build — the non-terminal way to run pro coding agents and manage real software projects. Closest peers are T3 Code (more open, multi-surface control plane) and pure CLI agents. Not a personal-life / multi-channel agent like Instinct, Muse, or OpenClaw.</td>
+<td class="quick">Open-source multi-agent company OS: org charts, budgets, goals, and tickets over BYO agents. Complements OpenClaw/Hermes/Claude Code rather than replacing them — Paperclip is the management layer, not the hands. Best when you want many specialized agents under one accountable board instead of a single personal assistant or a pure coding workspace (T3 Code / Enjoy).</td>
 </tr>
 </tbody></table>,Links:
 <a href="https://github.com/m-a-sch">Github</a>;
