@@ -85,6 +85,7 @@
 <th>Feature / Solution</th>
 <th>Grok Bot</th>
 <th>Muse</th>
+<th>Dots (OpenAI)</th>
 <th>OpenClaw</th>
 <th>Hermes Agent</th>
 <th>Meta AI Assistant</th>
@@ -102,11 +103,12 @@
 <th>Paperclip</th>
 <th>Cue</th>
 </tr></thead><tbody>
-<tr class="section"><td colspan="19">OWNERSHIP</td></tr>
+<tr class="section"><td colspan="20">OWNERSHIP</td></tr>
 <tr>
 <td class="feature">License</td>
 <td>Proprietary (xAI)</td>
 <td>Proprietary (Meta)</td>
+<td>Proprietary (OpenAI)</td>
 <td>MIT</td>
 <td>MIT</td>
 <td>Proprietary (Meta)</td>
@@ -128,6 +130,7 @@
 <td class="feature">Hosting</td>
 <td>Managed cloud by xAI</td>
 <td>Managed cloud (Meta); Muse Secure VM per user</td>
+<td>Managed cloud (OpenAI)</td>
 <td>Self-hosted (local machine or VPS)</td>
 <td>Self-hosted (local, remote, or Hermes Cloud instances)</td>
 <td>Managed cloud (Meta)</td>
@@ -149,6 +152,7 @@
 <td class="feature">Machine model</td>
 <td>Dedicated remote computer / sandbox per bot (xAI infrastructure)</td>
 <td>Dedicated secure Linux virtual machine with its own browser, file system, terminal, and storage; browser visible to the user; separate Sentinel process for outbound action checks</td>
+<td>Dedicated cloud computer + browser per dot; can also connect to the user’s laptop with permission; inspectable workspace</td>
 <td>Runs on host or connected tools; extensible with skills/plugins</td>
 <td>Multiple execution backends (local, Docker, SSH, Singularity, Modal)</td>
 <td>Cloud-hosted; limited true computer-use compared with dedicated sandboxes</td>
@@ -170,6 +174,7 @@
 <td class="feature">State ownership</td>
 <td>xAI-controlled; user data subject to xAI terms</td>
 <td>Meta-controlled; Meta states Muse data is not shared with ads system and emphasizes built-in privacy/security design — still provider-hosted</td>
+<td>OpenAI-controlled; enterprise options for private intelligence / no-retention tooling</td>
 <td>User-owned (local files, memory, configs)</td>
 <td>User-owned (local SQLite / pluggable memory backends)</td>
 <td>Meta-controlled</td>
@@ -187,11 +192,12 @@
 <td>User-owned (your deployment, tickets, audit log, org data)</td>
 <td>Provider-controlled; user sets tools, permissions, and approval gates</td>
 </tr>
-<tr class="section"><td colspan="19">CONTROL</td></tr>
+<tr class="section"><td colspan="20">CONTROL</td></tr>
 <tr>
 <td class="feature">Approval model</td>
 <td>Human-in-the-loop with takeover; bots ask when needed</td>
 <td>User stays in control; approve before sensitive actions (sending email, making purchases); complete audit trail of done and planned work; opt-in connectors with revoke</td>
+<td>Custom rules for what the dot may do alone vs when to ask; sensitive actions (e.g. password changes, permanent deletes) require explicit consent</td>
 <td>Configurable; community skills often include safety boundaries</td>
 <td>Configurable safety; container hardening and isolation options</td>
 <td>Platform-managed safety filters and policies</td>
@@ -213,6 +219,7 @@
 <td class="feature">Model choice</td>
 <td>Locked to Grok family (Grok 4 / Grok 4.6 etc.)</td>
 <td>Locked to Meta’s Muse Spark (agentic model); stronger backend model (internally ‘Watermelon’) planned</td>
+<td>Locked to GPT‑6 Astra (and OpenAI stack: Codex, ChatGPT Work tools)</td>
 <td>Multi-provider (Claude, GPT, Gemini, Grok, Ollama, etc.)</td>
 <td>Highly flexible (Nous Portal, OpenRouter 200–400+ models, Anthropic, OpenAI, Grok credits, local)</td>
 <td>Locked to Meta Llama family / Meta AI models</td>
@@ -234,6 +241,7 @@
 <td class="feature">Action layer</td>
 <td>Full computer use (browser, terminal, desktop), tool integrations</td>
 <td>Browser use on Secure VM, connectors/APIs, can build its own tools/code, shopping with one-time Stripe card numbers, email, calendar, forms, bookings</td>
+<td>Own cloud computer/browser, 4,000+ app plugins, optional laptop connection, Codex / Work tools for research, docs, software</td>
 <td>Tool use, browser, shell, messaging integrations, large skill library (ClawHub)</td>
 <td>47+ built-in tools, browser automation, shell, MCP, subagents with isolated terminals</td>
 <td>Chat + integrated tools (search, image gen, some app actions inside Meta ecosystem)</td>
@@ -251,11 +259,12 @@
 <td>Delegates to hired agents’ tools; Connectors (Gmail, Calendar, GitHub, etc.) with per-agent account and action permissions</td>
 <td>Own phone (calls/SMS), own email, own wallet (payments with limits), dedicated computer/browser workspace, connectors (Gmail, Trip.com, Oura, MyFitnessPal, Notion, Slack, etc.), routines</td>
 </tr>
-<tr class="section"><td colspan="19">MEMORY AND SKILLS</td></tr>
+<tr class="section"><td colspan="20">MEMORY AND SKILLS</td></tr>
 <tr>
 <td class="feature">Memory</td>
 <td>Persistent per-bot conversation + memory</td>
 <td>Persistent across conversations; learns preferences, reflects on goals, proactive suggestions from context</td>
+<td>Starts from ChatGPT memory; learns preferences, standards, and working habits from feedback over time; project context across channels</td>
 <td>File-backed / Markdown session memory with isolation modes</td>
 <td>Persistent across sessions (SQLite + FTS; pluggable backends, optional knowledge graph)</td>
 <td>Conversation memory within Meta accounts / apps</td>
@@ -277,6 +286,7 @@
 <td class="feature">Skills</td>
 <td>Routines / workflows the bot can learn and reuse</td>
 <td>Goal → plan → autonomous progress; builds tools as needed; connector library + API/browser fallback — not a user-authored skill marketplace</td>
+<td>Scheduled tasks, event monitoring, proactive research (read-only on connected apps when unprompted); not a user-authored public skill marketplace</td>
 <td>Large community library (ClawHub); mostly human-authored, installable skills</td>
 <td>Self-improving — agent auto-creates, updates, and refines skills from experience</td>
 <td>Built-in capabilities; limited user-authored skill system</td>
@@ -294,11 +304,12 @@
 <td>Company templates (pre-built org packs); connectors and role job descriptions; not a ClawHub-style public skill marketplace</td>
 <td>Routines and connected-life flows; merchant QR → agent pattern; not a public skill marketplace</td>
 </tr>
-<tr class="section"><td colspan="19">COORDINATION</td></tr>
+<tr class="section"><td colspan="20">COORDINATION</td></tr>
 <tr>
 <td class="feature">Multi-agent handoff</td>
 <td>Supported (bots can coordinate / hand off)</td>
 <td>Primarily single personal agent (not a multi-bot roster like Grok Bot / Squad); can juggle multiple tasks in one continuous relationship</td>
+<td>One primary dot at launch that can delegate parallel work; OpenAI envisions teams of dots later. ChatGPT Space for human + dot collaboration on shared project knowledge</td>
 <td>Strong gateway / multi-agent orchestration</td>
 <td>Subagents + A2A support; peer-style delegation</td>
 <td>Limited / not a primary focus</td>
@@ -320,6 +331,7 @@
 <td class="feature">Channels</td>
 <td>Native app / messaging-style interface; multi-platform clients</td>
 <td>Dedicated Muse app (iOS/Android), muse.ai web, WhatsApp; AI glasses coming soon</td>
+<td>ChatGPT (web, desktop, mobile after setup), Slack, Microsoft Teams; voice calls; texting (iMessage/RCS) on waitlist</td>
 <td>25+ messaging platforms (WhatsApp, Telegram, Slack, Discord, iMessage, etc.)</td>
 <td>12+ (Telegram-first, Discord, Slack, WhatsApp, Signal, Email, CLI, etc.)</td>
 <td>WhatsApp, Instagram, Messenger, web, devices with Meta AI</td>
@@ -341,6 +353,7 @@
 <td class="feature">Scheduling</td>
 <td>Routines and scheduled work supported</td>
 <td>Continues work in background after app close; event- and schedule-driven follow-ups; notifies when something meaningful needs input</td>
+<td>Always-on; scheduled tasks and supported event monitoring; works while user is away</td>
 <td>Heartbeats / cron-style jobs supported</td>
 <td>Natural-language scheduling and recurring routines</td>
 <td>Basic reminders / limited proactive scheduling</td>
@@ -358,11 +371,12 @@
 <td>Heartbeats and routines; agents wake on schedule / tickets; 24/7 capable if workers and host stay up</td>
 <td>Agents keep working after user logs off; routines for repeatable flows</td>
 </tr>
-<tr class="section"><td colspan="19">RUNNING IT</td></tr>
+<tr class="section"><td colspan="20">RUNNING IT</td></tr>
 <tr>
 <td class="feature">Setup</td>
 <td>Subscription-based (SuperGrok Heavy / high-tier plans); waitlist / early access. Primary clients are native desktop (macOS/Windows) and iOS apps — no specific browser required for the control UI. The bot’s own computer uses a managed cloud browser.</td>
 <td>US-only at launch: download Muse app (iOS/Android) or use muse.ai / WhatsApp. No technical setup; connect apps and grant access as needed. Web UI works in modern browsers. Free tier covers most everyday use; Power $20/mo and Maximum $100/mo for heavier automation.</td>
+<td>Create dot in ChatGPT desktop app (not mobile-create). Available to Pro and Business Premium in eligible markets (Pro excludes EEA, UK, Switzerland at launch); Enterprise when admin enables. One dot included at no extra seat cost. Web/desktop work in modern browsers; mobile interaction after setup.</td>
 <td>Relatively fast (npm / onboard wizard); ~30 min typical. Agent browser control requires a Chromium-based browser (Chrome, Brave, Edge, or Chromium) — Safari and Firefox are not supported (CDP). Managed profile or Chrome-extension relay both expect Chromium.</td>
 <td>Single install command; 2–4 hours for full assembly typical. Web dashboard works in any modern browser. Local/CDP browser automation and the official Chrome connector need a Chromium-family browser (Chrome, Brave, Edge, Chromium); Safari is not supported for the connector.</td>
 <td>Zero (already inside Meta apps). Web interface works in any modern browser (Chrome, Safari, Firefox, Edge).</td>
@@ -384,6 +398,7 @@
 <td class="feature">Ops burden</td>
 <td>Very low (fully managed)</td>
 <td>None (fully managed consumer product)</td>
+<td>Very low (fully managed)</td>
 <td>Medium (self-host + model keys)</td>
 <td>Low–medium (especially on serverless/idle-friendly backends)</td>
 <td>None</td>
@@ -405,6 +420,7 @@
 <td class="feature">Cost</td>
 <td>High (hundreds of USD/month tier; metered usage)</td>
 <td>Free tier for most users; Power $20/month; Maximum $100/month. No ads in Muse; Meta exploring commerce revenue</td>
+<td>Included with ChatGPT Pro (from ~$100/mo) or Business Premium; dot conversations do not count toward ChatGPT message limits; Codex/Work tasks count as usual. No separate per-dot fee at launch</td>
 <td>Free software; only LLM API / local model costs</td>
 <td>Free software; very cheap idle cloud instances; only inference costs</td>
 <td>Free (with Meta account) or bundled; no separate agent seat fee</td>
@@ -426,6 +442,7 @@
 <td class="feature">Security risk</td>
 <td>High privacy surface: Canadian Privacy Commissioner found xAI/X violated privacy law over non-consensual sexualized deepfakes; documented prompt-injection + encrypted-instruction data-exfiltration attacks; shared conversation URLs have been publicly indexed; class-action claims of transcript sharing with third parties; model can surface personal addresses/dossiers with minimal prompting. Managed hosting reduces self-host RCE risk but concentrates trust in xAI.</td>
 <td>High trust surface by design: Meta holds a dedicated VM, connectors to email/calendar/payments/health, and agent-driven purchases. Mitigations claimed: isolated Muse Secure VM, credential store the agent cannot read, one-time cards at checkout, Sentinel gate on outbound actions, no ads use of Muse data. Residual risks are Meta’s broader privacy history, over-permissioned connectors, prompt injection inside the VM, and dependence on Meta’s isolation claims. Competition framing explicitly targets OpenClaw/Instinct trust vs convenience tradeoff.</td>
+<td>Managed OpenAI profile: cloud computer + broad plugin access. Safeguards include default protections against malicious instructions, custom allow/ask rules, and explicit consent for high-impact actions. Residual risks are classic prompt injection, over-permissioned plugins, and OpenAI data-handling policies (enterprise private-intelligence options mitigate retention concerns). Lower self-host RCE surface than OpenClaw; higher concentration of trust in OpenAI.</td>
 <td>Critical / actively exploited: CVE-2026-25253 (CVSS 8.8) one-click RCE via WebSocket gateway token theft; 30k–42k+ publicly exposed instances; ClawHavoc supply-chain campaign with hundreds of malicious ClawHub skills (infostealers, Atomic macOS Stealer, crypto-wallet theft); plaintext credential storage common; indirect prompt injection via messaging channels; 500+ registered vulnerabilities. Highest real-world attack surface among open-source agents.</td>
 <td>Elevated: ~27 NVD CVEs (highest ~7.3); unauthenticated API server when key unset; CORS wildcards; browser private-network SSRF bypass; MCP-config persistence backdoors on misconfigured public instances; YOLO mode removes approvals and has been used in real post-exploitation; dependency CVEs; display-name allowlist bypasses on some platforms. Strong container isolation is the primary boundary, but operator misconfiguration (exposed dashboard/API as root) has led to live compromises.</td>
 <td>Moderate platform risk: data subject to Meta’s broad privacy practices and advertising ecosystem; limited true computer-use reduces RCE/sandbox-escape surface; primary concerns are account compromise, prompt injection within chat, and Meta’s retention/use of conversation data.</td>
@@ -447,6 +464,7 @@
 <td class="feature">Examples</td>
 <td>https://github.com/elie222/botdirectory.ai . Best references are xAI/Grok Bot official demos, botDirectory.ai, X/Twitter showcase threads from early beta users, and community recreations that mirror its ‘team of bots with computers’ pattern (see OpenMausBot and Rakazo repos).</td>
 <td>Official launch materials at about.fb.com and muse.ai / introducing.muse.ai (design and safety posts). Documented demos: back-to-school email/calendar/shopping, recipe reels → grocery list → order, travel booking, bill negotiation, form filling, party invites, selling a car. Connectors at launch include Google Workspace, Ticketmaster, OpenTable, Spotify, Apple Health, Meta apps.</td>
+<td>Official intro at openai.com/index/introducing-dots and chatgpt.com/features/dots; DevDay demos (calendar-aware dinner options, project ownership, voice); help.openai.com getting-started articles; third-party comparisons vs Grok Bot and Muse.</td>
 <td>https://github.com/OthmaneBlial/awesome-openclaw-examples (101 tested real-world usecases); https://github.com/openclaw/cookbook (official SDK recipes); https://github.com/hesamsheikh/awesome-openclaw-usecases (community life/automation cases); ClawHub skill registry + https://github.com/javimosch/open-claw-skills (thousands of curated skills); official showcase at openclaw/docs/start/showcase.md</td>
 <td>https://github.com/aliaihub/awesome-hermes-usecases (curated real-world cases with demos); official skills catalog in NousResearch/hermes-agent; https://github.com/frankxai/awesome-hermes-agent-skills; https://github.com/codesstar/hermes-skill-atlas; https://github.com/ChuckSRQ/awesome-hermes-skills; production blueprints at corpusiq.io/docs/hermes/agents</td>
 <td>No dedicated public use-case GitHub repo. Best sources are Meta AI help/docs inside WhatsApp/Instagram/Messenger, Meta AI web demos, and community prompt collections shared on X/Reddit.</td>
@@ -464,11 +482,12 @@
 <td>https://github.com/paperclipai/paperclip (core); paperclipai/companies (templates); docs at docs.paperclip.ing; blog demos of hiring CEO → strategy → engineers/marketers; Connectors launch (per-role Gmail/GitHub access); comparisons positioning Paperclip as company OS over OpenClaw/Claude Code employees.</td>
 <td>Official site cue.im (booking/travel, shopping, admin, money, daily life, work demos); Manus 2.0 launch posts; early-user writeups comparing Cue vs Grok Bot vs Muse (identity vs shared-login models); QR-to-agent for merchants.</td>
 </tr>
-<tr class="section"><td colspan="19">QUICK POSITIONING</td></tr>
+<tr class="section"><td colspan="20">QUICK POSITIONING</td></tr>
 <tr>
 <td class="feature">Quick Positioning</td>
 <td class="quick">The original high-polish, fully managed 'AI teammates with their own computers' product from xAI. Highest convenience and integration quality, but locked to Grok models, expensive, and you do not own the runtime or the data plane.</td>
 <td class="quick">Meta’s mass-market personal agent: Secure VM + browser + approvals, WhatsApp/app-native, free-to-start. Closest big-tech answer to Instinct and OpenClaw for everyday consumers — stronger distribution and polish than open-source stacks, weaker ownership and model choice than self-hosted options, and full trust concentration in Meta.</td>
+<td class="quick">OpenAI’s always-on personal/work agent with its own cloud computer — the direct ChatGPT answer to Grok Bot and Muse. One primary dot (not a multi-bot roster yet), deep plugin ecosystem, Slack/Teams native. Best if you already live in ChatGPT Pro/Business; weaker on ownership and model choice than self-hosted stacks.</td>
 <td class="quick">The most popular open-source multi-channel agent gateway. Excels at reach (25+ messaging apps) and a huge community skill library. Best when you want one agent (or swarm) living inside the chat apps you already use.</td>
 <td class="quick">The self-improving open-source agent from Nous Research. Strongest on learning loops (skills that compound over time), model flexibility, and cheap long-running instances. Ideal when the agent should get better the more you use it.</td>
 <td class="quick">The ubiquitous free assistant already living inside WhatsApp, Instagram, and Messenger. Lowest friction and zero cost, but weakest on true computer-use, ownership, and deep agent autonomy compared with the dedicated bot platforms.</td>
@@ -493,6 +512,7 @@
 <a href="https://etherscan.io/token/0xbf3cf56c587f5e833337200536a52e171ef29a09?a=0x935320e36db80e27cfbc05bf16a4f305bc461460">AZTEC's KYC</a> Built with Grok's help.
 </div>
 </body></html>
+
 
 
 
