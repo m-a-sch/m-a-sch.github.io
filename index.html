@@ -102,8 +102,9 @@
 <th>Enjoy</th>
 <th>Paperclip</th>
 <th>Cue</th>
+<th>Polsia</th>
 </tr></thead><tbody>
-<tr class="section"><td colspan="20">OWNERSHIP</td></tr>
+<tr class="section"><td colspan="21">OWNERSHIP</td></tr>
 <tr>
 <td class="feature">License</td>
 <td>Proprietary (xAI)</td>
@@ -125,6 +126,7 @@
 <td>Proprietary (desktop app; releases via GitHub atmoio/enjoy-releases)</td>
 <td>MIT (open source)</td>
 <td>Proprietary (Manus / Meta ecosystem)</td>
+<td>Proprietary SaaS (polsia.com); open-source self-host variant on GitHub (PolsiaAI/Polsia, Claude Code CLI–driven)</td>
 </tr>
 <tr>
 <td class="feature">Hosting</td>
@@ -147,6 +149,7 @@
 <td>Local-first desktop (macOS 13+ Apple Silicon &amp; Intel, Windows x64). Optional phone/browser remote when desktop is awake and online; end-to-end encrypted device messages on paid plan</td>
 <td>Self-hosted (Node.js server + React UI); optional third-party hosted instances. Single deployment can run multiple isolated companies</td>
 <td>Managed cloud (Manus Cascade harness + optional Cloud Computer)</td>
+<td>Managed cloud for the commercial product (provisions GitHub, Neon DB, Render, email, Stripe Connect). Self-host via Docker + Claude Code CLI for the open-source path</td>
 </tr>
 <tr>
 <td class="feature">Machine model</td>
@@ -169,6 +172,7 @@
 <td>Runs coding agents on the host via installed CLIs (Claude Code, Codex, Grok Build). No separate cloud sandbox per bot; project terminals/previews managed in-app</td>
 <td>Orchestration layer only — agents run via adapters (Claude Code on host, Codex, Cursor, OpenClaw, shell, HTTP heartbeats). No built-in cloud desktop per agent; workers bring their own runtime/computer</td>
 <td>Dedicated computer workspace per agent; agents also get their own phone number, email address, and wallet/card — independent identity rather than signing into the user’s accounts only</td>
+<td>Platform-managed company stack + agent cycles; commercial path includes persistent cloud computer / desktop state for agents. Open-source path runs agents as Claude Code subprocesses on your host</td>
 </tr>
 <tr>
 <td class="feature">State ownership</td>
@@ -191,8 +195,9 @@
 <td>User-owned local files — conversations, docs, recipes, and project state live in a local .enjoy folder (plain files)</td>
 <td>User-owned (your deployment, tickets, audit log, org data)</td>
 <td>Provider-controlled; user sets tools, permissions, and approval gates</td>
+<td>Commercial: provider-hosted company state, memory, and (in some terms) payment flows through Polsia balance. Self-host: user-owned</td>
 </tr>
-<tr class="section"><td colspan="20">CONTROL</td></tr>
+<tr class="section"><td colspan="21">CONTROL</td></tr>
 <tr>
 <td class="feature">Approval model</td>
 <td>Human-in-the-loop with takeover; bots ask when needed</td>
@@ -214,6 +219,7 @@
 <td>Provider-native agent approvals; Enjoy is the workspace surface, not a separate policy engine</td>
 <td>Governance layer: budgets per agent, ask-first / allow / off per connector action, human approve strategy and spend caps; pause / resume / override / reassign / terminate</td>
 <td>User controls tools/permissions; sensitive actions (payments, etc.) under user-set rules; agent hands work back when a decision is needed</td>
+<td>Morning briefings / reports; founder reviews before publish in many workflows; commercial product still expects human oversight of what ships. Open-source: you control the host and CLI</td>
 </tr>
 <tr>
 <td class="feature">Model choice</td>
@@ -236,6 +242,7 @@
 <td>Bring-your-own agent CLIs — Claude Code, Codex, Grok Build (using existing Claude/ChatGPT/Grok subscriptions). Switch agent mid-conversation</td>
 <td>Fully bring-your-own agent runtime — Claude Code, Codex, Cursor, OpenClaw, Hermes, OpenCode, Gemini, HTTP/bash, etc. Model choice is whatever each hired agent uses</td>
 <td>Provider-managed (Manus / Cascade stack); not bring-your-own model</td>
+<td>Primarily Anthropic Claude / Claude Code CLI (OAuth). Commercial platform is Claude-centric; self-host follows whatever the CLI is authenticated to</td>
 </tr>
 <tr>
 <td class="feature">Action layer</td>
@@ -258,8 +265,9 @@
 <td>Whatever the underlying coding agent can do (edit, terminal, tools) plus Enjoy’s project management: multi-agent threads, docs/recipes, local previews/servers, check-ins</td>
 <td>Delegates to hired agents’ tools; Connectors (Gmail, Calendar, GitHub, etc.) with per-agent account and action permissions</td>
 <td>Own phone (calls/SMS), own email, own wallet (payments with limits), dedicated computer/browser workspace, connectors (Gmail, Trip.com, Oura, MyFitnessPal, Notion, Slack, etc.), routines</td>
+<td>GitHub code + PRs, social posts, cold email, Google/Meta ads, inbox/support, Stripe finance, competitor research, web tools / MCP</td>
 </tr>
-<tr class="section"><td colspan="20">MEMORY AND SKILLS</td></tr>
+<tr class="section"><td colspan="21">MEMORY AND SKILLS</td></tr>
 <tr>
 <td class="feature">Memory</td>
 <td>Persistent per-bot conversation + memory</td>
@@ -281,6 +289,7 @@
 <td>Project-local state in .enjoy (threads, docs, recipes); long-term agent memory is whatever the chosen CLI provides</td>
 <td>Company/task history, tickets, comments, immutable audit trail; agent memory lives in the underlying agent runtime</td>
 <td>Persistent per-agent state across sessions; multi-agent shared goals in group chat</td>
+<td>Shared persistent memory across agents and companies on an account; holds context across daily cycles</td>
 </tr>
 <tr>
 <td class="feature">Skills</td>
@@ -303,8 +312,9 @@
 <td>Recipes and project workflows in the local folder; relies on connected agent capabilities rather than a public skill marketplace</td>
 <td>Company templates (pre-built org packs); connectors and role job descriptions; not a ClawHub-style public skill marketplace</td>
 <td>Routines and connected-life flows; merchant QR → agent pattern; not a public skill marketplace</td>
+<td>Fixed specialist roles on schedules (orchestrator, planning, social, outreach, support, ads, code, finance, competitor research); not a public skill marketplace</td>
 </tr>
-<tr class="section"><td colspan="20">COORDINATION</td></tr>
+<tr class="section"><td colspan="21">COORDINATION</td></tr>
 <tr>
 <td class="feature">Multi-agent handoff</td>
 <td>Supported (bots can coordinate / hand off)</td>
@@ -326,6 +336,7 @@
 <td>Multiple agent threads in one workspace; switch brains mid-thread; not a multi-bot personal-life roster</td>
 <td>Core product — org chart, reporting lines, CEO strategy → task creation → delegation; tickets, queues, @-style coordination across roles</td>
 <td>Supported — several specialized agents can share a goal in a group chat and hand work to each other while the user sets direction and final calls</td>
+<td>Core design — orchestrator plans; specialists execute on staggered or nightly cycles; shared company state</td>
 </tr>
 <tr>
 <td class="feature">Channels</td>
@@ -348,6 +359,7 @@
 <td>Native desktop app (primary); paid plan adds phone and browser clients (desktop must remain online)</td>
 <td>Web dashboard (primary); mobile-friendly monitoring; agents themselves may expose chat channels (e.g. OpenClaw workers)</td>
 <td>Cue app (macOS + mobile; iOS in App Store review), web; agents can use their own phone/email as channels</td>
+<td>Web dashboard + live activity stream; morning email briefings; agents act on external channels (email, X, ads)</td>
 </tr>
 <tr>
 <td class="feature">Scheduling</td>
@@ -370,8 +382,9 @@
 <td>In-app check-ins / on-demand flows; not a general 24/7 personal-agent scheduler</td>
 <td>Heartbeats and routines; agents wake on schedule / tickets; 24/7 capable if workers and host stay up</td>
 <td>Agents keep working after user logs off; routines for repeatable flows</td>
+<td>Strong — daily/nightly autonomous cycles, plus per-agent intervals (e.g. social every 2h, support every 3h)</td>
 </tr>
-<tr class="section"><td colspan="20">RUNNING IT</td></tr>
+<tr class="section"><td colspan="21">RUNNING IT</td></tr>
 <tr>
 <td class="feature">Setup</td>
 <td>Subscription-based (SuperGrok Heavy / high-tier plans); waitlist / early access. Primary clients are native desktop (macOS/Windows) and iOS apps — no specific browser required for the control UI. The bot’s own computer uses a managed cloud browser.</td>
@@ -393,6 +406,7 @@
 <td>Download Mac (.dmg) or Windows installer from enjoy.dev / GitHub releases. Install and authenticate at least one of Claude Code, Codex, or Grok Build. Free: one project, desktop only. Unlimited $14.99/mo for more projects and remote clients. Control UI is the desktop app; web/phone on paid plan work in modern browsers.</td>
 <td>npx paperclipai (or onboard flow); configure DB, hire CEO first, then specialists. Web UI works in any modern browser. Requires at least one agent adapter (e.g. Claude Code installed for local Mac runs). Company templates importable from paperclipai/companies.</td>
 <td>cue.im — download app / sign in (early access with invite code, free for now). Name agents; they provision email (and phone/wallet where available). Web works in modern browsers. Cloud Computer is a separate purchasable resource for always-on work.</td>
+<td>Commercial: sign up at polsia.com, describe idea or “surprise me,” agents provision stack. Open-source: clone PolsiaAI/Polsia, Docker Compose, Claude Code CLI authenticated. Web UI works in modern browsers.</td>
 </tr>
 <tr>
 <td class="feature">Ops burden</td>
@@ -415,6 +429,7 @@
 <td>Low for local use; phone access requires desktop left on and connected</td>
 <td>Medium (self-host Node server, DB, keep agent runtimes healthy); lower if using a hosted Paperclip instance</td>
 <td>Very low (fully managed)</td>
+<td>Low on commercial (managed); medium on self-host (Docker, Claude CLI, integrations, reviewing agent output)</td>
 </tr>
 <tr>
 <td class="feature">Cost</td>
@@ -437,6 +452,7 @@
 <td>Free (1 project) or $14.99/month unlimited. Provider subscription costs separate (Claude / ChatGPT / Grok)</td>
 <td>Free software (MIT). Only costs are your compute + whatever AI subscriptions/API the hired agents use. Some hosted offerings exist at low monthly fees</td>
 <td>Early access free with invite. Long-term pricing not fully published; Manus Cloud Computer and credit-style usage may apply after EA. Early reports mentioned ~$20/mo as a possible post-EA figure — confirm in-product.</td>
+<td>Commercial: free explore tier; Pro around $49/mo (one nightly autonomous task + on-demand credits in published plans); some terms include ~20% share of agent-generated economic activity / payments routed via Polsia. Self-host: free software + Claude subscription/compute</td>
 </tr>
 <tr>
 <td class="feature">Security risk</td>
@@ -459,6 +475,7 @@
 <td>Local-first: agents and secrets stay on your machine; remote channel is end-to-end encrypted on paid plan. Main risks are host privileges of the coding CLIs, anything that exposes the desktop remotely while online, and provider credential handling. Smaller general-purpose attack surface than OpenClaw (coding-focused, no public skill registry). Proprietary binary — trust in the vendor’s release pipeline.</td>
 <td>Self-hosted control-plane risk profile: protect the dashboard and DB; connector OAuth tokens and per-agent permissions are high-value; misconfigured budgets/approvals can still burn tokens or take real actions via workers. No OpenClaw-style public skill malware surface of its own, but hired agents (especially OpenClaw) inherit their own risks. Audit log and governance are the main mitigations.</td>
 <td>High real-world identity surface: agents hold phone numbers, email inboxes, and payment wallets. Mitigations depend on permission scopes, payment limits, and approval gates. Prior Manus prompt-injection / email-borne issues (e.g. Salt Labs findings, patched via Meta bounty) show agent environments remain attack targets. Residual risks: social engineering of the agent’s identity, over-permissioned wallets, and trust in Manus/Meta isolation. Stronger independence than Muse (which acts as you) also means clearer blast radius if an agent is compromised.</td>
+<td>Commercial: high trust surface — agents touch GitHub, ads accounts, business email, and payments; review published ToS on revenue routing and data. Self-host inherits Claude Code host privileges and whatever credentials you inject. Independent reviews note low survival rate of generated companies and need to review everything before publish. Residual risks: over-autonomous outbound (email/ads), payment misrouting, and prompt injection into agent cycles.</td>
 </tr>
 <tr>
 <td class="feature">Examples</td>
@@ -481,8 +498,9 @@
 <td>Product site enjoy.dev (demo, positioning for solo builders). Workflows: plan with one agent, build with another; multi-project management; local preview/API servers from the workspace; morning check-ins and release readiness flows.</td>
 <td>https://github.com/paperclipai/paperclip (core); paperclipai/companies (templates); docs at docs.paperclip.ing; blog demos of hiring CEO → strategy → engineers/marketers; Connectors launch (per-role Gmail/GitHub access); comparisons positioning Paperclip as company OS over OpenClaw/Claude Code employees.</td>
 <td>Official site cue.im (booking/travel, shopping, admin, money, daily life, work demos); Manus 2.0 launch posts; early-user writeups comparing Cue vs Grok Bot vs Muse (identity vs shared-login models); QR-to-agent for merchants.</td>
+<td>polsia.com live activity / company feed; GitHub PolsiaAI/Polsia (9-agent Docker stack); reviews documenting idea → provision → nightly cycle; founder claims of 1,000+ companies run autonomously (active share much lower in third-party counts).</td>
 </tr>
-<tr class="section"><td colspan="20">QUICK POSITIONING</td></tr>
+<tr class="section"><td colspan="21">QUICK POSITIONING</td></tr>
 <tr>
 <td class="feature">Quick Positioning</td>
 <td class="quick">The original high-polish, fully managed 'AI teammates with their own computers' product from xAI. Highest convenience and integration quality, but locked to Grok models, expensive, and you do not own the runtime or the data plane.</td>
@@ -504,6 +522,7 @@
 <td class="quick">Polished desktop workspace for Claude Code / Codex / Grok Build — the non-terminal way to run pro coding agents and manage real software projects. Closest peers are T3 Code (more open, multi-surface control plane) and pure CLI agents. Not a personal-life / multi-channel agent like Instinct, Muse, or OpenClaw.</td>
 <td class="quick">Open-source multi-agent company OS: org charts, budgets, goals, and tickets over BYO agents. Complements OpenClaw/Hermes/Claude Code rather than replacing them — Paperclip is the management layer, not the hands. Best when you want many specialized agents under one accountable board instead of a single personal assistant or a pure coding workspace (T3 Code / Enjoy).</td>
 <td class="quick">Personal agents with *their own* phone, email, wallet, and computer — not just acting inside your logins. Closest peer to Muse and Instinct for consumer life-admin, with a sharper ‘independent identity’ bet than Grok Bot’s work-teammate model. Managed only; early access free with invite.</td>
+<td class="quick">Autonomous AI company runner: specialized agents that plan, ship code, market, and support a business on a schedule. Closer to Paperclip’s “company OS” ambition than to a personal assistant (Muse/Cue/Dots) or coding workspace (T3 Code/Enjoy). Best for solo founders willing to review aggressively; weak if you need model freedom, full ownership, or high-confidence product-market fit before shipping.</td>
 </tr>
 </tbody></table>,Links:
 <a href="https://github.com/m-a-sch">Github</a>;
@@ -512,6 +531,7 @@
 <a href="https://etherscan.io/token/0xbf3cf56c587f5e833337200536a52e171ef29a09?a=0x935320e36db80e27cfbc05bf16a4f305bc461460">AZTEC's KYC</a> Built with Grok's help.
 </div>
 </body></html>
+
 
 
 
