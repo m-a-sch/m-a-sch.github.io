@@ -96,6 +96,7 @@
 <th>Sub8</th>
 <th>Rakazo</th>
 <th>OpenMausBot</th>
+<th>Open Dot</th>
 <th>Instinct</th>
 <th>T3 Code</th>
 <th>Squad.so</th>
@@ -106,7 +107,7 @@
 <th>Bankr (bankrbot)</th>
 <th>Pickle</th>
 </tr></thead><tbody>
-<tr class="section"><td colspan="23">OWNERSHIP</td></tr>
+<tr class="section"><td colspan="24">OWNERSHIP</td></tr>
 <tr>
 <td class="feature">License</td>
 <td>Proprietary (xAI)</td>
@@ -122,6 +123,7 @@
 <td>Open-source (check repo for exact; community self-hosted)</td>
 <td>Apache-2.0</td>
 <td>MIT (notes also reference Apache-2.0 adoption)</td>
+<td>Open source on GitHub (composio-community/open-dot); check repo for current license — some reports note no clear packaged license yet</td>
 <td>Proprietary (Spear Street Technology, Inc.)</td>
 <td>MIT</td>
 <td>Proprietary (managed SaaS; formerly MissionControlHQ)</td>
@@ -147,6 +149,7 @@
 <td>Self-hosted</td>
 <td>Fully self-hosted (Docker / E2B / Daytona / Box); managed Cloud waitlisted</td>
 <td>Local-first (127.0.0.1 harness); optional cloud Box desktops, Local VM, or BYO VPS via SSH + Cua containers</td>
+<td>Self-hosted on your Mac (app must be open for routines/triggers in current builds)</td>
 <td>Managed cloud (invite-only / waitlist while scaling compute)</td>
 <td>Self-hosted (local Node WebSocket server); optional remote via LAN, Tailscale, or T3 Connect tunnel. Clients: web (app.t3.codes or local), Electron desktop, iOS/Android</td>
 <td>Managed cloud (dedicated workspace / cloud computer for the squad). Primary product is not self-hosted; export/backup available on cancel</td>
@@ -172,6 +175,7 @@
 <td>Isolated Linux desktop / sandbox per agent</td>
 <td>One sandboxed computer per bot (or shared Team Computer) — browser, shell, graphical desktop</td>
 <td>Per-bot computer: cloud Linux desktop (live preview), isolated Local VM, host control (macOS + Ubuntu GNOME beta), or self-hosted VPS container</td>
+<td>Per-dot browser that stays logged in; watchable Computer tab with human takeover for login/CAPTCHA; not a full cloud VM like OpenAI Dots / Grok Bot</td>
 <td>Cloud + device access (phone + computer use in the same way a human would); connects to email, messaging, screen, audio, location and more</td>
 <td>Runs on the host machine; agents execute via their native CLIs (no separate sandbox VM per bot by default). Git worktree isolation per thread</td>
 <td>Dedicated cloud infrastructure for the squad; separate browser profile (and own logins/files) per teammate on shared team computer</td>
@@ -197,6 +201,7 @@
 <td>User-owned</td>
 <td>User-owned (Postgres + DATA_DIR workspaces, browser profiles, audit logs)</td>
 <td>User-owned (~/.openmausbot workspaces, MEMORY.md, transcripts, keys)</td>
+<td>Local on your Mac; passwords in macOS Keychain (model never sees plaintext)</td>
 <td>Provider-controlled; terms grant license to use Materials for training/fine-tuning</td>
 <td>User-owned (sessions, threads, git state on your machine)</td>
 <td>Provider-hosted workspace; FAQ states workspace data is not used as training material; export available before cancel</td>
@@ -207,7 +212,7 @@
 <td>Wallet and on-chain assets are yours; agent memory/files/automations live on Bankr’s backend tied to your account/wallet</td>
 <td>Provider-hosted memory and work records; privacy policy states no training on your data; sensitive categories (health, finances, exact location) gated from social sharing</td>
 </tr>
-<tr class="section"><td colspan="23">CONTROL</td></tr>
+<tr class="section"><td colspan="24">CONTROL</td></tr>
 <tr>
 <td class="feature">Approval model</td>
 <td>Human-in-the-loop with takeover; bots ask when needed</td>
@@ -223,6 +228,7 @@
 <td>Configurable isolation and human oversight</td>
 <td>Configurable; request_takeover + full human desktop takeover</td>
 <td>Explicit Allow/Deny cards in chat; temporary human takeover; agents can request human operation</td>
+<td>Rules (e.g. “ask before replying to email”); small model checks risky actions; approve/deny from chat cards. Reads freely via Composio; asks before send/post/pay/change</td>
 <td>Highly proactive / resourceful by design; can reset passwords, complete purchases, fill paperwork, make calls with relatively little friction (users report aggressive autonomy)</td>
 <td>Provider-native approvals + dual runtime modes (Full Access / Supervised); approval prompts surfaced in the UI</td>
 <td>Human-in-the-loop via tickets/approvals (draft-for-review for email; spending and real-world purchases gated by briefing); phone as decision device for approvals</td>
@@ -248,6 +254,7 @@
 <td>Model-agnostic (bring your own)</td>
 <td>Fully flexible via Pi harness (Claude, GPT, Grok, local, OpenRouter, ChatGPT/Copilot/SuperGrok OAuth)</td>
 <td>Per-bot picker; runs on Claude, Codex, Grok, Cursor Agent CLI, Gemini, etc. using existing logins/subscriptions</td>
+<td>Your OpenAI API key or OpenRouter (open models such as Kimi, DeepSeek, Qwen). No ChatGPT Pro required</td>
 <td>Proprietary core model trained for personal life nuances</td>
 <td>Bring-your-own agent CLIs — Claude Code, Codex, Cursor, Grok Build, OpenCode (and forks add more). Switch models/providers mid-thread</td>
 <td>Bring-your-own AI: ChatGPT (Codex), Claude, Claude Code, Grok/SuperGrok, Gemini, GitHub Copilot, Kimi, MiniMax, Z.AI, Qwen Cloud, Cloudflare Workers AI, OpenCode, OpenRouter. Per-agent and per-schedule model overrides; multi-account stacking and ordered fallback chains</td>
@@ -273,6 +280,7 @@
 <td>Full Linux desktop control, browser, terminal, files</td>
 <td>Browser, terminal, files, graphical desktop + optional Composio apps</td>
 <td>Computer use (Cua), browser (embedded Chromium/CDP), files, 500+ apps via Composio, MCP plugins</td>
+<td>Per-dot browser, Composio connectors (Gmail, Calendar, Slack, Notion, GitHub + ~1,500 apps), optional voice calls that continue after hang-up</td>
 <td>Phone + computer use, messaging (iMessage primary), calls, bookings, shopping, form-filling, app connections</td>
 <td>Whatever the underlying coding agent can do (file edit, terminal, browser tools if the CLI supports them) + T3’s git worktree isolation, diff viewer, one-click commit/push/PR</td>
 <td>Tools/integrations, browser use on cloud profiles, email (optional per-agent inboxes), research tools, MCP/custom credentials; connects to business tools with scope presets and per-agent access</td>
@@ -283,7 +291,7 @@
 <td>First-class crypto: swaps, bridges, limit/stop/DCA/TWAP, Hyperliquid &amp; Avantis perps, Polymarket, NFTs, token deploy + fee claims, transfers to ENS/social handles, arbitrary contract calls, Merkl rewards, web research</td>
 <td>Own web browser, connected accounts/cards, calendar, messaging, phone calls (transcribed, disclosed as AI), research/book/order/pay flows</td>
 </tr>
-<tr class="section"><td colspan="23">MEMORY AND SKILLS</td></tr>
+<tr class="section"><td colspan="24">MEMORY AND SKILLS</td></tr>
 <tr>
 <td class="feature">Memory</td>
 <td>Persistent per-bot conversation + memory</td>
@@ -299,6 +307,7 @@
 <td>Persistent local memory</td>
 <td>Persistent per-bot conversations, memory, and history</td>
 <td>Per-bot workspace + file-based (MEMORY.md into prompt + topic files); plain Markdown editable by user</td>
+<td>Per-dot memory of you and recurring tasks; skills saved for repeated work</td>
 <td>Long-running continuous relationship / single thread with deep personal context</td>
 <td>Persistent threads / sessions managed by T3; long-term memory is whatever the chosen agent CLI provides</td>
 <td>Persistent workspace context, missions, tickets, docs, and agent history across sessions</td>
@@ -324,6 +333,7 @@
 <td>User / community defined skills and routines</td>
 <td>Markdown routines (teach once → readable/editable/committable)</td>
 <td>Personality + model per bot; shareable teams/crews; MCP plugins; routines early/coming</td>
+<td>Dots can save skills for tasks they repeat; not a large public skill marketplace like OpenClaw ClawHub</td>
 <td>Trained for everyday life tasks (follow-ups, travel, home services, admin, negotiation)</td>
 <td>Relies on the skills/tools of the connected agent CLIs; T3 itself is the control surface, not a skill runtime</td>
 <td>Playbooks / specialist roles designed with the Lead agent; schedules and recurring runs; not a public skill marketplace like ClawHub</td>
@@ -334,7 +344,7 @@
 <td>Installable skills (GitHub catalog + in-product Skills tab); Bankr skill for OpenClaw/Claude Code so external agents inherit trading/wallet tools</td>
 <td>No public skill marketplace; capabilities grow with level/trust and connected accounts rather than user-authored skill packs</td>
 </tr>
-<tr class="section"><td colspan="23">COORDINATION</td></tr>
+<tr class="section"><td colspan="24">COORDINATION</td></tr>
 <tr>
 <td class="feature">Multi-agent handoff</td>
 <td>Supported (bots can coordinate / hand off)</td>
@@ -350,6 +360,7 @@
 <td>Supported via peer or sub-agent patterns</td>
 <td>Strong — spawn peer bots (own thread + computer) or short-lived subagents</td>
 <td>Bot-to-bot communication; exportable/shareable teams</td>
+<td>Multiple dots with different jobs can pass work to each other</td>
 <td>Primarily single continuous agent; orchestration is internal rather than multi-bot roster</td>
 <td>Parallel agents across projects/worktrees; orchestration is ‘run many coding agents side-by-side’ rather than multi-bot personal teams</td>
 <td>Strong — Lead Agent coordinates; specialists claim tickets on a shared mission board, @-mention style routing, threaded discussion</td>
@@ -375,6 +386,7 @@
 <td>Local UI + possible messaging bridges</td>
 <td>Web app, Electron desktop, Expo mobile; voice mode (ElevenLabs/OpenAI/Cartesia)</td>
 <td>Native desktop app (macOS, Windows, Ubuntu); phone companion (LAN/tailnet); voice (macOS STT + ElevenLabs)</td>
+<td>Mac app chat, voice calls; app-centric (not a full messaging-gateway product)</td>
 <td>iMessage / text + voice calls as primary interface; no new UI to learn</td>
 <td>Web app, Electron desktop, native mobile (iOS/Android); remote control over network/Tailscale/T3 Connect</td>
 <td>Dashboard chat (primary), optional Telegram and Discord bots, iOS app; read-only share links for observers</td>
@@ -400,6 +412,7 @@
 <td>Supported</td>
 <td>Routines via Graphile Worker</td>
 <td>Early / limited native scheduling (routines noted as coming)</td>
+<td>Scheduled routines (e.g. weekday inbox/calendar brief) and event triggers (email, GitHub issue) via Composio — currently only while the app is running</td>
 <td>Proactive (calls/texts you, follows up, works overnight)</td>
 <td>Session/thread oriented; not a general cron/routines system like Hermes or Rakazo</td>
 <td>Native schedules + heartbeats; agents work offline 24/7</td>
@@ -410,7 +423,7 @@
 <td>Strong — limit/stop/DCA/TWAP orders and scheduled agent commands that run while you sleep</td>
 <td>Proactive follow-ups and task continuation via work records; not a full cron/routine editor in the consumer pitch</td>
 </tr>
-<tr class="section"><td colspan="23">RUNNING IT</td></tr>
+<tr class="section"><td colspan="24">RUNNING IT</td></tr>
 <tr>
 <td class="feature">Setup</td>
 <td>Subscription-based (SuperGrok Heavy / high-tier plans); waitlist / early access. Primary clients are native desktop (macOS/Windows) and iOS apps — no specific browser required for the control UI. The bot’s own computer uses a managed cloud browser.</td>
@@ -426,6 +439,7 @@
 <td>Self-host (Docker / local). Control UI is typically web-based (any modern browser). Agent browser automation, when used, generally expects Chromium-based browsers.</td>
 <td>Clone + Node 22 / pnpm / Docker; still early beta. Control UI (web) works in any modern browser (Chrome, Safari, Firefox, Edge). Each bot’s sandbox ships its own browser (Chromium inside Docker/E2B/etc.) — you do not need a local Chrome install for the agents.</td>
 <td>Download signed desktop app (or build); requires underlying agent CLIs already installed &amp; authenticated. Desktop app embeds Chromium for in-app browser use — no separate Chrome/Safari install required for bot browsing. External links open in the system default browser.</td>
+<td>Clone/build Mac app from GitHub (Node 22+, pnpm; Chrome or Playwright Chromium). Supply OpenAI or OpenRouter API key. Modern Chromium for the agent browser; Safari is not the automation target.</td>
 <td>Invite-only / waitlist (instinct.co); existing members can invite. Primary interface is iMessage / phone / voice — no browser required for day-to-day use. Any web surfaces work in modern browsers.</td>
 <td>npx t3@latest (or desktop installers via brew/winget/GitHub releases). Requires at least one authenticated provider CLI. Control UI (web) works in any modern browser (Chrome, Safari, Firefox, Edge); desktop/mobile apps do not depend on a specific system browser. Agents themselves run as CLIs on the host.</td>
 <td>Sign up at squad.so → connect AI provider(s) → ~5 min provisioning → ~10 min Lead Agent onboarding chat. Web dashboard works in any modern browser (Chrome, Safari, Firefox, Edge). iOS app on the App Store. Claude Code path may need Node.js/terminal for setup-token.</td>
@@ -451,6 +465,7 @@
 <td>Medium</td>
 <td>Medium (Postgres, API, worker, sandbox supervisor)</td>
 <td>Low–medium for pure local; higher with BYO VPS or multiple cloud boxes</td>
+<td>Medium — build from source, keep app running for schedules, manage API keys and Composio</td>
 <td>None (fully managed consumer product)</td>
 <td>Low for local use; medium if you expose the server remotely</td>
 <td>Very low (fully managed)</td>
@@ -476,6 +491,7 @@
 <td>Free software + your compute and model costs</td>
 <td>Free software; only LLM keys + optional remote sandbox costs; unlimited bots</td>
 <td>Free forever; unlimited bots; only existing AI subscriptions / optional voice &amp; sandbox costs</td>
+<td>Software free (self-host); you pay model API + optional Composio. No ChatGPT Pro seat required</td>
 <td>Not publicly listed (private access / scaling phase)</td>
 <td>Free software (MIT). Only cost is your existing Claude/Codex/Cursor/Grok/OpenCode subscriptions</td>
 <td>$99/month flat + your own AI subscriptions (no Squad token markup). 7-day money-back. Research-tool credits and optional email add-on may apply within caps</td>
@@ -501,6 +517,7 @@
 <td>Medium (typical self-hosted agent profile): isolation quality depends on the chosen sandbox (Docker/VM); prompt injection and tool abuse can still act inside the sandbox; credential/files in the agent environment are at risk if the sandbox is escaped or misconfigured.</td>
 <td>Early-beta / medium-high: self-hosted stack (Postgres, Graphile Worker, sandbox supervisor) inherits typical web + container risks; Docker socket or misconfigured E2B/Daytona exposure can escalate; Composio OAuth tokens and browser profiles inside sandboxes are high-value targets; prompt injection remains possible.</td>
 <td>Designed local-first (harness binds 127.0.0.1 only, no auth by design — trusts the local user). Main risks: anything that exposes the harness off-machine, broker bypasses for risky actions, secret echo in logs/API, or shell injection when spawning CLIs. Host-control and BYO-VPS modes enlarge the blast radius.</td>
+<td>Local Keychain password injection is a strong design choice (model never sees secrets). Residual risks: browser session exposure, Composio OAuth scope, build-from-source supply chain, and always-on agent with real mail/calendar write paths. Keep approval rules strict; review triggers before enabling autopilot-style actions.</td>
 <td>High data sensitivity: terms explicitly allow use of Materials (including personal data) to train/fine-tune models; always-on access to screen, audio, location, email and messaging creates a large privacy surface. Users should read the August 2026 ToS carefully before granting broad device/app permissions. Managed service removes self-host RCE risk but concentrates trust in the vendor.</td>
 <td>Local-first by design (server owns all CLI processes). Main risks: exposing the WebSocket server off-machine without proper auth/network controls; whatever privileges the underlying agent CLIs have on the host; provider credential handling. Smaller general-purpose attack surface than OpenClaw because it is coding-agent focused and does not ship a skill marketplace.</td>
 <td>Moderate managed-SaaS profile: trust in vendor isolation, credential vault (write-only secrets), and OAuth to your AI/tool accounts. Separate browser profiles per teammate reduce cross-bot credential bleed vs single shared machine designs. Residual risks are prompt injection, over-permissioned integrations, and provider-side retention. FAQ: data is not training material. Not self-hosted, so no OpenClaw-style exposed-gateway RCE surface, but full trust is concentrated in Squad’s cloud and staff access controls.</td>
@@ -526,6 +543,7 @@
 <td>Primary examples live in the project’s own repository and docs (sandbox + desktop-control demos). Community use-cases still sparse compared with OpenClaw/Hermes.</td>
 <td>https://github.com/elie222/rakazo (main repo + demo + self-host docs). Early community examples focus on the built-in bot roles shown on rakazo.com (Chief of Staff, Bug Triage, Expense Manager, etc.).</td>
 <td>https://github.com/milind-soni/OpenMausBot (main repo + docs). Product site and shareable team-export feature are the primary use-case surfaces. Community examples revolve around multi-bot teams and Composio-connected workflows.</td>
+<td>github.com/composio-community/open-dot README (browser, Keychain, Composio, rules, voice, schedules); community write-ups comparing it to ChatGPT Dots on Mac.</td>
 <td>No public open-source repo (closed product). Best material is user reports and demos on X (booking flights/hotels, shopping overnight, negotiating with vendors on WhatsApp, finding in-network doctors + filling paperwork, lowering bills, etc.) and the product site instinct.co. Frequently compared directly with Grok Bot and OpenClaw as the consumer-friendly version of the same pattern.</td>
 <td>https://github.com/pingdotgg/t3code (main repo, docs, AGENTS.md); official site t3.codes; install docs and provider matrix in the repo; community forks that expand provider support (e.g. ACP editions)</td>
 <td>Official docs and playbooks at squad.so/resources/docs; product marketing and Grok Bot comparison/examples content on squad.so/resources (e.g. grok-bot-examples, mission-control comparisons). Lead proposes roster after business interview; typical lanes: support, content, ops, CFO-style review with draft-before-send rules.</td>
@@ -536,7 +554,7 @@
 <td>docs.bankr.bot (agent overview, trading, self-sustaining agent guide); bankr.bot terminal and leaderboard; GitHub BankrBot/skills; CLI examples (swap, launch, fees); social execution from X/Telegram; OpenClaw skill install path.</td>
 <td>App Store listing “Pickle: Raise your AI”; pickle.com privacy/terms (own computer, phone calls, Link payments); product copy on levels, energy, and neighborhood Pickles.</td>
 </tr>
-<tr class="section"><td colspan="23">QUICK POSITIONING</td></tr>
+<tr class="section"><td colspan="24">QUICK POSITIONING</td></tr>
 <tr>
 <td class="feature">Quick Positioning</td>
 <td class="quick">The original high-polish, fully managed 'AI teammates with their own computers' product from xAI. Highest convenience and integration quality, but locked to Grok models, expensive, and you do not own the runtime or the data plane.</td>
@@ -552,6 +570,7 @@
 <td class="quick">Lightweight open-source focus on isolated Linux desktops per agent. Good middle ground for users who want real computer-use sandboxes without the full multi-channel gateway complexity of OpenClaw or the learning-loop emphasis of Hermes.</td>
 <td class="quick">One of the closest open-source spiritual successors to Grok Bot: persistent bots that each get a real computer, can sign into tools, run Markdown routines, and hand work between peers — with full ownership, model freedom, and no vendor lock-in. Still early beta.</td>
 <td class="quick">Purest open-source 'Grok Bot shape' clone: messaging-style roster of named bots, each with personality, model, memory, computer, and tools. Biggest differentiator is BYO agent CLIs (reuses Claude/Codex/Grok/Cursor subscriptions you already pay for). Local-first with strong approval cards and editable Markdown memory.</td>
+<td class="quick">Open-source, Mac-local answer to OpenAI Dots: named agents with their own browsers, approval rules, and app connectors without a Pro subscription. Stronger on ownership and model choice than Dots/Muse; weaker on true always-on (app must stay open) and maturity vs OpenClaw/Hermes. Best if you want Dots-like UX on hardware you control.</td>
 <td class="quick">“OpenClaw for normal people.” Fully managed personal agent with iMessage/phone as the interface, extreme proactivity, and real-world task completion (bookings, shopping, admin, calls). Strongest simplicity and everyday-life focus; weakest on ownership, model choice, and transparency of data use.</td>
 <td class="quick">Open-source control plane / GUI for coding agents. Best-in-class mobile + desktop + web surface that drives Claude Code, Codex, Cursor, Grok Build and OpenCode with your existing subs. Not a general personal-life agent (Instinct/Grok Bot/OpenClaw territory) — it is the polished harness for parallel coding work, git worktrees, and one-click PRs.</td>
 <td class="quick">Managed multi-model AI squad with a Lead + specialists, shared task board, and 24/7 schedules — on the AI plans you already pay for. Closest commercial competitor to ‘Grok Bot as a multi-provider team operation’: stronger model freedom and ops dashboard than Grok Bot, weaker ownership than self-hosted OpenClaw/Hermes/Rakazo/OpenMausBot. Best when you want a standing business team without running servers.</td>
@@ -566,6 +585,7 @@
 Built with Grok's help.
 if you like this page send one DAI to @papa.zk.money</div>
 </body></html>
+
 
 
 
