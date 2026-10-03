@@ -107,8 +107,9 @@
 <th>Bankr (bankrbot)</th>
 <th>Pickle</th>
 <th>Codync</th>
+<th>Cofactor (Runcofactor)</th>
 </tr></thead><tbody>
-<tr class="section"><td colspan="25">OWNERSHIP</td></tr>
+<tr class="section"><td colspan="26">OWNERSHIP</td></tr>
 <tr>
 <td class="feature">License</td>
 <td>Proprietary (xAI)</td>
@@ -135,6 +136,7 @@
 <td>Proprietary platform (Bankr); open skills/plugins on GitHub (BankrBot/skills, openclaw-skills)</td>
 <td>Proprietary (Pickle, Inc.)</td>
 <td>MIT (open source)</td>
+<td>Proprietary SaaS (runcofactor.com)</td>
 </tr>
 <tr>
 <td class="feature">Hosting</td>
@@ -162,6 +164,7 @@
 <td>Managed cloud agent runtime + wallet infrastructure; state keyed to your wallet/account across surfaces</td>
 <td>Managed (iOS app + cloud); Pickle’s computer and work records on provider infrastructure</td>
 <td>Self-hosted: Rust host (`codync-host`) on your Mac or Linux; optional free end-to-end-encrypted relay for remote phone access (or direct Wi‑Fi / Tailscale)</td>
+<td>Managed cloud for suite runs / CI / scheduled fuzzing; local CLI pairs with your machine for live browser sessions</td>
 </tr>
 <tr>
 <td class="feature">Machine model</td>
@@ -189,6 +192,7 @@
 <td>Web-native agent workspace: persistent filesystem in UI, code sandbox, scheduled automations — not a full Linux desktop like Grok Bot, but a crypto execution environment with browser/research tools</td>
 <td>Dedicated computer per Pickle for browsing, booking, ordering, paying; phone calls from Pickle numbers; work records (steps, pages, results) reviewable by you</td>
 <td>Your real computer — coding agents run locally with your logins and project folders; remote screen (WebRTC) from phone; built-in `computer` tool for bots</td>
+<td>Real browser driven by the Cofactor agent (local via CLI or platform runs); sessions become commit-able deterministic traces — not a general-purpose personal cloud desktop</td>
 </tr>
 <tr>
 <td class="feature">State ownership</td>
@@ -216,8 +220,9 @@
 <td>Wallet and on-chain assets are yours; agent memory/files/automations live on Bankr’s backend tied to your account/wallet</td>
 <td>Provider-hosted memory and work records; privacy policy states no training on your data; sensitive categories (health, finances, exact location) gated from social sharing</td>
 <td>Bots, transcripts, memory, and authorization live in local SQLite (`~/.codync`); phone only receives E2E-encrypted frames; notification text sealed to the phone key</td>
+<td>Flows, traces, videos, and reports on Cofactor’s platform; local traces can be committed to your repo</td>
 </tr>
-<tr class="section"><td colspan="25">CONTROL</td></tr>
+<tr class="section"><td colspan="26">CONTROL</td></tr>
 <tr>
 <td class="feature">Approval model</td>
 <td>Human-in-the-loop with takeover; bots ask when needed</td>
@@ -244,6 +249,7 @@
 <td>Security layer screens txs (malicious contracts, phishing, unusual patterns, prompt injection) before sign; Club/Max Mode gates heavier agent API use; social surfaces ignore pure greetings</td>
 <td>Designed to check with you before spending money and before significant/irreversible steps; Link (Stripe) payments require explicit approval per charge</td>
 <td>Approval cards in chat: Allow once / Always allow / Deny when an agent wants to run a command or change files; notify only on “needs you” or “done”</td>
+<td>QA-oriented: suite results, video evidence, flake filtering before alerting; role-based flow runs (Owner / Admin / Member / Viewer) to assert access boundaries</td>
 </tr>
 <tr>
 <td class="feature">Model choice</td>
@@ -271,6 +277,7 @@
 <td>Bankr LLM Gateway (Claude, GPT, Gemini, Grok, open weights, etc.) billed from LLM credits; Max Mode can pick models per prompt. Gateway also usable by Claude Code / OpenClaw / Cursor</td>
 <td>Provider stack (Google, OpenAI, Anthropic, xAI and infra such as Azure, Baseten, Cerebras, OpenRouter per privacy policy) — not user-selectable per task</td>
 <td>Bring any ACP coding agent (Claude Code, Codex, Cursor, Gemini, Copilot, OpenCode, Pi, Grok Build, ~40 more) with the logins you already have; mix agents per bot</td>
+<td>Platform agent + integration with your coding tools (Claude, Cursor); not a user-swappable multi-model personal agent roster</td>
 </tr>
 <tr>
 <td class="feature">Action layer</td>
@@ -298,8 +305,9 @@
 <td>First-class crypto: swaps, bridges, limit/stop/DCA/TWAP, Hyperliquid &amp; Avantis perps, Polymarket, NFTs, token deploy + fee claims, transfers to ENS/social handles, arbitrary contract calls, Merkl rewards, web research</td>
 <td>Own web browser, connected accounts/cards, calendar, messaging, phone calls (transcribed, disclosed as AI), research/book/order/pay flows</td>
 <td>ACP agents on local projects + computer tool + remote screen control; not a general consumer booking agent</td>
+<td>Browser automation (click, type, assert), seed data, multi-role runs, issue filing to Jira/Linear/Azure DevOps with agent-ready fix prompts</td>
 </tr>
-<tr class="section"><td colspan="25">MEMORY AND SKILLS</td></tr>
+<tr class="section"><td colspan="26">MEMORY AND SKILLS</td></tr>
 <tr>
 <td class="feature">Memory</td>
 <td>Persistent per-bot conversation + memory</td>
@@ -326,6 +334,7 @@
 <td>Durable memory across conversations; same agent state on web, X, Telegram, CLI</td>
 <td>Core product — living memory of conversations and life context; evolves with use; optional broader Pickle OS / enclave memory story on company sites</td>
 <td>Per-bot memory that carries across sessions; host-owned, local</td>
+<td>Deterministic traces and flow library; self-healing when UI changes — product memory is the regression suite, not a personal life graph</td>
 </tr>
 <tr>
 <td class="feature">Skills</td>
@@ -353,8 +362,9 @@
 <td>Installable skills (GitHub catalog + in-product Skills tab); Bankr skill for OpenClaw/Claude Code so external agents inherit trading/wallet tools</td>
 <td>No public skill marketplace; capabilities grow with level/trust and connected accounts rather than user-authored skill packs</td>
 <td>Inherited from whichever coding agent each bot runs; Codync itself is the messaging/approval/orchestration layer</td>
+<td>Flows/properties built from NL, tickets, PRDs, or Chrome Extension recording; CLI skill templates for agents (`@runcofactor/cli`)</td>
 </tr>
-<tr class="section"><td colspan="25">COORDINATION</td></tr>
+<tr class="section"><td colspan="26">COORDINATION</td></tr>
 <tr>
 <td class="feature">Multi-agent handoff</td>
 <td>Supported (bots can coordinate / hand off)</td>
@@ -381,6 +391,7 @@
 <td>Ecosystem of agent tokens/agents on leaderboard; not a personal multi-bot roster like Grok Bot. One Bankr agent per account with shared state across channels</td>
 <td>Social multi-Pickle world (friends’ Pickles, community board) for plans and intros — not a work multi-bot roster like Grok Bot</td>
 <td>First-class — many bots side by side; group chats (answer in turn, `@name`); bots ask each other via built-in `team` MCP (`ask_bot`); threads branch without cluttering main chat</td>
+<td>Hand-off to coding agents via filed issues with fix prompts; not multi-bot personal teammates like Grok Bot</td>
 </tr>
 <tr>
 <td class="feature">Channels</td>
@@ -408,6 +419,7 @@
 <td>bankr.bot terminal, @bankrbot on X, Telegram @bankr_ai_bot, Farcaster, CLI (@bankr/cli), Agent API</td>
 <td>iOS app (voice + text primary); Pickle-to-Pickle / community in the 3D world</td>
 <td>iPhone/iPad app (App Store), native Mac (SwiftUI), Linux (GTK), terminal UI over SSH</td>
+<td>Web app (app.runcofactor.com), CLI inside Claude/Cursor, Chrome Extension, CI hooks</td>
 </tr>
 <tr>
 <td class="feature">Scheduling</td>
@@ -435,8 +447,9 @@
 <td>Strong — limit/stop/DCA/TWAP orders and scheduled agent commands that run while you sleep</td>
 <td>Proactive follow-ups and task continuation via work records; not a full cron/routine editor in the consumer pitch</td>
 <td>Routines on a schedule or webhook</td>
+<td>Strong — PR runs, scheduled full regression, nightly fuzzing of the app</td>
 </tr>
-<tr class="section"><td colspan="25">RUNNING IT</td></tr>
+<tr class="section"><td colspan="26">RUNNING IT</td></tr>
 <tr>
 <td class="feature">Setup</td>
 <td>Subscription-based (SuperGrok Heavy / high-tier plans); waitlist / early access. Primary clients are native desktop (macOS/Windows) and iOS apps — no specific browser required for the control UI. The bot’s own computer uses a managed cloud browser.</td>
@@ -463,6 +476,7 @@
 <td>bankr.bot → sign in (email / X / Farcaster / Telegram) → wallet created. Or npm i -g @bankr/cli &amp;&amp; bankr login. Optional: install Bankr skill into OpenClaw/Claude Code. Terminal works in modern browsers. Free tier ~5 messages/day on terminal; Club ~$20/mo or Max Mode + LLM credits for heavier use.</td>
 <td>iPhone App Store install; raise from Lv.1. Free with in-app purchases / optional Pickle Plus (Apple billing). Modern iOS only — not a desktop browser agent product.</td>
 <td>Install host on Mac/Linux (Homebrew / releases); install coding agents you want; pair iOS app via QR or access request. Optional Tailscale or free relay. Native apps — not a browser-required control surface for the host.</td>
+<td>Sign up at runcofactor.com; CLI for local browser pairing; Chrome Extension for recording flows. Chromium/Chrome is the automation browser. Docs at docs.runcofactor.com.</td>
 </tr>
 <tr>
 <td class="feature">Ops burden</td>
@@ -490,6 +504,7 @@
 <td>Very low for trading/chat; medium if you run self-funding agent tokens and monitor fee/LLM economics</td>
 <td>Very low (fully managed consumer app)</td>
 <td>Low–medium: keep host running, manage agent logins, pair devices; no cloud ops beyond optional relay</td>
+<td>Low for managed suite; medium if you own local CLI + CI wiring and review self-healed flows</td>
 </tr>
 <tr>
 <td class="feature">Cost</td>
@@ -517,6 +532,7 @@
 <td>Terminal free messages limited; Bankr Club ~$20/mo for agent API/skills; LLM gateway pay-as-you-go credits (top up from wallet). Gas often sponsored on supported chains within daily limits. Token-launch path: trading fees can fund LLM usage (self-sustaining loop)</td>
 <td>Free tier + IAP / subscription via App Store; optional Pickle OS Pro / hardware (Pickle 1 AR glasses) is a separate product line and not required for the agent app</td>
 <td>Software free (MIT). You pay only the coding-agent subscriptions/API usage you already use. Relay free.</td>
+<td>Commercial SaaS (talk-to-sales / waitlist positioning on site); exact public tiers not fully listed — expect team/usage pricing typical of QA platforms</td>
 </tr>
 <tr>
 <td class="feature">Security risk</td>
@@ -544,6 +560,7 @@
 <td>High-value surface: real wallets, signing, and social-prompted trades. Mitigations include pre-sign security screening and Club gates. Residual risks: social engineering via @mentions, prompt injection into trading instructions, smart-contract/protocol risk, and historical crypto-agent incidents (review Bankr security posts and wallet incident history). Never fund more than you can lose; prefer limits and read-only checks for new flows.</td>
 <td>High-trust surface: payments, connected accounts, phone calls, and social sharing of what the Pickle may say about you. Mitigations: spend confirmation, Link approval, share controls, no-training claims. Residual risks: social over-sharing, call transcription, cloud memory breach, and prompt injection into booking/pay flows. Fund and connect only what you’re willing to risk.</td>
 <td>Strong design: local SQLite, E2E phone path, host as sole authorization authority, approval cards. Residual risks: host compromise = full agent/project access; remote screen and `computer` tool expand blast radius; free relay is ciphertext-only but still a network path. Prefer Tailscale/direct when possible; keep Always-allow lists tight.</td>
+<td>Browser agent against real staging/prod-like apps: credential and data exposure in test environments, video/trace retention, and CI secrets. Mitigate with dedicated test accounts, non-prod data, and least-privilege roles. Residual risks: over-broad flows touching production, and third-party issue-tracker tokens.</td>
 </tr>
 <tr>
 <td class="feature">Examples</td>
@@ -571,8 +588,9 @@
 <td>docs.bankr.bot (agent overview, trading, self-sustaining agent guide); bankr.bot terminal and leaderboard; GitHub BankrBot/skills; CLI examples (swap, launch, fees); social execution from X/Telegram; OpenClaw skill install path.</td>
 <td>App Store listing “Pickle: Raise your AI”; pickle.com privacy/terms (own computer, phone calls, Link payments); product copy on levels, energy, and neighborhood Pickles.</td>
 <td>codync.dev; github.com/leepokai/Codync (README, architecture, bot-collaboration docs); App Store “Codync”; Product Hunt positioning as open Grok Bot/Muse/Dots alternative.</td>
+<td>runcofactor.com product demos (multi-role billing flows, video reports); docs.runcofactor.com (concepts, quickstart); npm `@runcofactor/cli`; founder positioning around regression as the gate for agent-speed shipping.</td>
 </tr>
-<tr class="section"><td colspan="25">QUICK POSITIONING</td></tr>
+<tr class="section"><td colspan="26">QUICK POSITIONING</td></tr>
 <tr>
 <td class="feature">Quick Positioning</td>
 <td class="quick">The original high-polish, fully managed 'AI teammates with their own computers' product from xAI. Highest convenience and integration quality, but locked to Grok models, expensive, and you do not own the runtime or the data plane.</td>
@@ -599,14 +617,12 @@
 <td class="quick">Crypto-first agent runtime: wallet + natural-language DeFi + self-funding token flywheel, reachable from social feeds and a terminal. Not a general life assistant (Muse/Cue/Dots) or coding workspace (T3 Code/Enjoy) — the category leader for conversational on-chain trading and agent treasuries. Complements OpenClaw via the Bankr skill rather than replacing it.</td>
 <td class="quick">Consumer life agent with character, memory, and a real computer — book/order/pay/call with human yes on spend. Stronger on companionship and social Pickle-to-Pickle than on work multi-agent or self-host ownership. Best if you want Muse-like daily help in a playful raise-your-AI form; weak if you need desktop computer-use, model choice, or open-source control (use OpenClaw / pickle-bot for that).</td>
 <td class="quick">Open-source bot UI for the coding agents you already pay for — Grok Bot / Muse-style named teammates, group chat, and phone approvals without a new subscription or cloud computer. Best for developers who live in Claude Code/Codex/Cursor and want mobile delegation; not a general life assistant (Muse/Pickle) or crypto runtime (Bankr).</td>
+<td class="quick">Vertical agent for QA: real-browser, self-healing regression so coding agents can ship faster without silent breakage. Complements Codync/T3 Code/Claude Code rather than replacing Muse/Dots/Grok Bot. Best for teams drowning in agent-generated PRs; not a personal assistant or general computer-use teammate.</td>
 </tr>
 </tbody></table>
 Built with Grok's help.
 if you like this page send one DAI to @papa.zk.money</div>
 </body></html>
-
-
-
 
 
 
